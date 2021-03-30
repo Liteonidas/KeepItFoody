@@ -1,0 +1,42 @@
+/* Resizing background image */
+img.resize {
+    width:cover 100%;
+    height:cover 100%;
+    background-size:cover;
+    }
+.tlo{
+
+    padding-top: 0px;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background: none;
+    /*background:url('../../assets\home_page_image_resized.jpg') no-repeat center center fixed;*/
+    background-color: #f99639;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow:auto;
+}
+.image_format{
+    border-radius: 8px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container-fluid{
+    height:cover 100%!important;
+}
+
+.card-format{
+    border-radius: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.title-text-format{
+    font-weight:bold;
+}
+
+.standard-text-format{
+    color: #3d3b3b;
+}

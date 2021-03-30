@@ -1,0 +1,39 @@
+.row {
+    padding-left: 92px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+.col-sm {
+    padding-right: 40px;
+    text-align: center;
+}
+.col-sm:hover {
+    background-color: ghostwhite;
+}
+#dash a{
+    color: black;
+}
+
+#dash a:link {
+    text-decoration: none;
+    color: black;
+}
+#dash a:hover{
+    color: #f4511e;
+}
+#dash {
+    width: 70%;
+    padding: 70px;
+}
+i {
+    text-align: center;
+    font-size: 50px;
+    color: #f4511e;
+}
+
+a  {
+    margin: 0 auto;
+}
+.bug{
+  border: none;
+}

@@ -1,0 +1,26 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<!-- <div class="d-flex align-items-center" id="padding-top">
+<div *ngIf="this.premium; else noPremium">
+    <app-dziennik-tydzien *ngIf="numerWidoku==1" (obecnaData)="ZmianaObecnejDaty($event)" (zmienWidok)="ZmienWidok($event)"></app-dziennik-tydzien>
+</div>
+
+<ng-template #noPremium>
+  <div class="d-flex align-items-center">
+    <p>Brak konta premium. W celu uzyskania dostepu skontaktuj się z administracją.</p>
+  </div>
+</ng-template>
+
+</div> -->
+<div class="tlo d-flex align-items-center">
+  <div class="container d-flex justify-content-center">
+    <div class="row" id="ramka">
+    <h3 class="text-center col-12">Witaj</h3>
+    <p class="text-center col-12">Tylko użytkownicy premium mają dostęp do tej zakładki.
+      Dołącz do nich, by uzyskać pełną funkcjonalność.
+    </p>
+    <div class="col-12 d-flex justify-content-center">
+    <button id="kolor" type="button" class="btn">Dołącz</button>
+  </div>
+  </div>
+  </div>
+</div>

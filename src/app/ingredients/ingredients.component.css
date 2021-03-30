@@ -1,0 +1,67 @@
+h1 {
+    text-align: center;
+}
+.btn {
+    float: right;
+    background-color: antiquewhite;
+    color: black;
+}
+.btn:active {
+    background-color: rgb(196, 65, 25);
+}
+.row{
+    width: 45%;
+    padding-top: 50px;
+}
+
+
+ table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+#do-prawej{
+  float: right;
+  white-space: pre;
+}
+ul {
+
+  list-style-type: none;
+  position: left!important;
+  padding: 0px;
+
+  }
+
+li {
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #ffa200;
+  border-color: #ff8600;
+}
+
+.custom-select{
+  margin-top: 10px;
+}
+.fa-check-circle{
+  color: green;
+  text-align: center
+}
+.fa-times-circle{
+  color: red;
+  text-align: center
+}
+.kolor{
+  background-color: #F8F8FF;
+}
+
+.bialy-znak{
+  white-space: pre;
+}
+.bug{
+  border: none;
+}

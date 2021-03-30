@@ -1,0 +1,88 @@
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/*#przepis{
+
+    margin: 10px;
+}*/
+
+.card {
+    /*padding: 20px;*/
+    margin: 5px;
+
+}
+.img-fluid{
+    width: 100%;
+}
+
+.btn-primary{
+
+    margin-bottom: 10px;
+
+}
+
+.card-img-top{
+
+    margin-top: 10px;
+
+}
+#styl-szukaj-przepis{
+  font-style: normal;
+}
+#szukaj-przepis{
+  background-color: #f79862;
+}
+#kategorie-przep{
+  border-radius: 5px;
+}
+ .my-margin{
+  padding-top: 100px;
+ }
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/katherine-chase-518230-unsplash.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 0px!important;
+
+}
+/* form.card-body{
+  padding:none;
+  background: transparent;
+  background-attachment: fixed;
+  opacity: 0.5;
+  filter: alpha(opacity=10);
+} */
+.kraw{
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+#szukaj-radius{
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+
+}

@@ -1,0 +1,45 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+
+<div class="tlo">
+  <div class="container">
+    <div class="card card-sm border-0" style="background-color:transparent">
+      <!-- border-0 krawedz karty opcjonalnie do zmiany -->
+      <form style="background-color:transparent" class="form row card-body no-gutters px-0">
+        <!-- Tutaj skonczyles!!!!!!!!! -->
+        <div class="input-group col-8 pt-2 pl-3">
+
+          <input class="form-control form-control-lg" type="search" placeholder="Szukaj diet" id="szukaj-radius">
+
+        </div>
+        <!--end of col-->
+        <div class="col-auto pt-2">
+          <button class="btn btn-lg kraw" id="szukaj-przepis" type="submit">
+            <i class="fas fa-search fa-sm"></i>
+            <i><strong id="styl-szukaj-przepis"> Szukaj</strong></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="row card-deck">
+      <div class="col-12 mb-3" *ngFor="let item of [1,2,3,4,5]">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-auto">
+              <img src="//placehold.it/200" class="img-fluid" alt="">
+            </div>
+            <div class="col">
+              <div class="card-block px-3">
+                <h4 class="card-title pt-2">Dieta</h4>
+                <p class="card-text">Opis diety</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer w-100 text-muted">
+            Autor: User
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

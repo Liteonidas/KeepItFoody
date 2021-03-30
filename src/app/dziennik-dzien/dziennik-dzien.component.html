@@ -1,0 +1,545 @@
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+<app-zalogowany-navbar *ngIf="czyPokazacNavbar"></app-zalogowany-navbar>
+
+<!-- <div class="col"></div> -->
+<div class="container mb-5 mx-0 px-0 mt-0">
+  <div class="text-center">
+    <h3>Dzienne zapotrzebowanie kaloryczne</h3>
+    <h3>{{realizacjaTytul}} </h3>
+    <h4 class="mt-2" style="color:blue"> <i class="fas fa-tint"></i> Powinieneś dziennie pić:<br>
+      {{reallizacajaPodtytul}} litry wody</h4>
+    <ngb-progressbar type="success" [value]="realizacjaProcent"></ngb-progressbar>
+    <h4 style="color: red" *ngIf="kaloriePosilkow > bmr">
+      Przekroczyłeś dzienną dawkę kalorii
+    </h4>
+  </div>
+  <!-- <div class="row text-center">
+    <div class="col-8 px-0 poz">
+      <circle-progress id="plan" class="pozycjonowanie1" [percent]="planProcent" [radius]="100" [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8" [outerStrokeColor]="'#FF6633'" [innerStrokeColor]="'#FF6633'" [animation]="true"
+        [animationDuration]="300" [showSubtitle]="false" [showTitle]="false" [showUnits]="false" [renderOnClick]="false"
+        #plan></circle-progress>
+      <circle-progress id="realizacja" class="pozycjonowanie2" [percent]="realizacjaProcent" [radius]="120"
+        [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#f79862'" [innerStrokeColor]="'#f79869'"
+        [animation]="true" [animationDuration]="300" [subtitle]="reallizacajaPodtytul" [title]="realizacjaTytul"
+        [showImage]="false" [showUnits]='false' #realizacja></circle-progress>
+    </div>
+    <div class="col-2 align-self-center px-0"> </div> -->
+
+</div>
+<div class="row mt-3 d-flex justify-content-center" id="szer">
+  <div class="col-md-8">
+    <!-- TUTAJ dodać widok wyświetlania posiłków z listy posilki -->
+
+    <ul class="list-group">
+      <!-- (click)="open(content, posilek)" -->
+      <li class="list-group-item" *ngFor="let posilek of posilki; let RowIndex = index"
+        style="background: transparent; border: none;">
+        <div id="accordion">
+          <div class="card" style="cursor: pointer">
+            <div class="card-header" data-toggle="collapse" [attr.data-target]="'#row' + RowIndex" aria-expanded="true"
+              aria-controls="collapseOne">
+              <h5><i class="bialy-znak">{{posilek.date | date: 'HH:mm'}} </i> {{posilek.meal_name}}
+                <i style="color: red;">{{posilek.kalorie | number:'1.0-0' }} kcal</i>
+                <!-- Odwrotne wywołanie, pierwszy right-float będzie bardziej po prawej! -->
+                <i class="fas fa-trash-alt do-prawej" (click)="UsunPosilek(posilek)" style="cursor: pointer"></i>
+                <i class="dp-prawej"></i>
+
+
+              </h5>
+            </div>
+            <!-- Rozwinięcie -->
+            <div id="row{{RowIndex}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <h5 class="bialy-znak ml-3" *ngIf="posilek.recipe_name != 'Własny_posiłek'">  {{posilek.recipe_name}} </h5>
+                <ul class="list-group list-group-flush" *ngFor="let skladnik of posilek.ingredients">
+                  <li class="list-group-item bialy-znak ml-2" *ngIf="skladnik.ingredient_name != null">
+                    <!-- <input class="form-check-input" type="checkbox"> -->
+                    {{skladnik.ingredient_name}}
+                    <span class="do-prawej" *ngIf="skladnik.quantity != '0'"> {{skladnik.quantity}} g</span>
+                    <!-- <span class="do-prawej" *ngIf="skladnik.id_unit != '0'"> {{skladnik.id_unit}} g</span> -->
+                  </li>
+                  <li class="list-group-item bialy-znak" *ngIf="skladnik.name != null">
+                    <!-- <input class="form-check-input" type="checkbox"> -->
+                    {{skladnik.name}}
+                    <span class="do-prawej" *ngIf="skladnik.quantity != '0' && skladnik.quantity != null">
+                      {{skladnik.quantity}} g</span>
+                    <!-- <span class="do-prawej" *ngIf="skladnik.id_unit != '0' && skladnik.id_unit != null">
+                      {{skladnik.id_unit}} g</span> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="d-flex justify-content-center">
+      <button class="btn przycisk mt-2" data-toggle="modal" data-target="#posilekModal" aria-haspopup="true"
+        aria-expanded="false" type="button" (click)="ResetujFormularz()">Dodaj posiłek</button>
+    </div>
+    <!-- <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Test Dodaj
+        posiłek</button>
+    </div> -->
+  </div>
+</div>
+<!-- Testowy modal -->
+<!-- <app-dodaj-posilek></app-dodaj-posilek> -->
+
+<!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Dodaj posiłek</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <app-dodaj-posilek></app-dodaj-posilek>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+              <button type="button" class="btn btn-primary">Dalej</button>
+          </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- Drugi testowy modal angularowy -->
+<!-- <ng-template #test let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-dodaj-posilek></app-dodaj-posilek>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+
+    <button class="btn btn-lg btn-outline-primary" (click)="opent(test)">Launch demo modal</button> -->
+
+<form class="modal fade" id="posilekModal" tabindex="-1" role="dialog" aria-labelledby="posilekModalLabel"
+  aria-hidden="true" [formGroup]="formGroup" (ngSubmit)="Zapisz()">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="posilekModalLabel">Dodaj Posiłek</h4>
+        <button id="close-modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 block border-bottom">
+            <div class="wrapper-progressBar mb-3">
+              <ul class="progressBar nav">
+                <li class="nav-item py-0" [ngClass]="{'active': currentStep >= 0}">
+                  <a class="nav-link" href="#krok-1" data-toggle="tab" id="step-1" role="tab" aria-controls="krok-1"
+                    aria-selected="true" (click)="currentStep=0;">1</a>
+                </li>
+                <li class="nav-item py-0" [ngClass]="{'active': currentStep >= 1}">
+                  <a class="nav-link" href="#krok-2" data-toggle="tab" id="step-2" role="tab" aria-controls="krok-2"
+                    aria-selected="false" (click)="currentStep=1;">2</a>
+                </li>
+                <li class="nav-item py-0" [ngClass]="{'active': currentStep >= 2}">
+                  <a class="nav-link" href="#krok-3" data-toggle="tab" id="step-3" role="tab" aria-controls="krok-3"
+                    aria-selected="false" (click)="currentStep=2;">3</a>
+                </li>
+                <li class="nav-item py-0" [ngClass]="{'active': currentStep >= 3}">
+                  <a class="nav-link" href="#krok-4" data-toggle="tab" id="step-4" role="tab" aria-controls="krok-4"
+                    aria-selected="false" (click)="currentStep=3;">4</a>
+                </li>
+                <li class="nav-item py-0" [ngClass]="{'active': currentStep >= 4}">
+                  <a class="nav-link" href="#krok-5" data-toggle="tab" id="step-5" role="tab" aria-controls="krok-5"
+                    aria-selected="false" (click)="currentStep=4;">5</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-3 ml-0" style="width: 100%">
+            <div class="col-12" style="width: 100%">
+              <div class="tab-content d-flex justify-content-center" style="width: 100%">
+                <div class="tab-pane active" id="krok-1" style="width: 100%">
+                  <!-- <label>
+                    <h6 class="pad">Wybierz rodzaj posiłku</h6>
+                    <select class="form-control" formControlName="nazwa">
+                      <option value="Śniadanie" >Śniadanie</option>
+                      <option value="Drugie Śniadanie">Drugie Śniadanie</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Obiad">Obiad</option>
+                      <option value="Przekąska">Przekąska</option>
+                      <option value="Podwieczorek">Podwieczorek</option>
+                      <option value="Kolacja">Kolacja</option>
+                      <option value="" >Nie wybrano</option>
+                    </select>
+                  </label> -->
+                  <h6 class="pad">Wybierz rodzaj posiłku</h6>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad" value="Śniadanie" class="custom-control-input" name="nazwa" formControlName="nazwa" style="color: #f79862" checked>
+                    <label class="custom-control-label" for="rad">Śniadanie</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad1" value="Drugie Śniadanie" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad1">Drugie Śniadanie</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad2" value="Lunch" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad2">Lunch</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad3" value="Obiad" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad3">Obiad</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad4" value="Przekąska" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad4">Przekąska</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad5" value="Podwieczorek" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad5">Podwieczorek</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="rad6" value="Kolacja" class="custom-control-input" name="nazwa" formControlName="nazwa">
+                    <label class="custom-control-label" for="rad6">Kolacja</label>
+                  </div>
+                </div>
+                <div class="tab-pane mb-1" id="krok-2" style="width: 100%">
+                  <h6 class="pad">Posiłek z przepisu czy składnika</h6>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="radioczy" (click)="Przep()" class="custom-control-input"
+                      checked>
+                    <label class="custom-control-label" for="customRadio2">Użyj gotwych przepisów</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="radioczy" (click)="Sklad()"
+                      class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio1">Skomponuj własny posiłek</label>
+                  </div>
+                </div>
+                <div class="tab-pane" id="krok-3" style="width: 100%">
+                  <ng-container *ngIf="this.isVisible == 0">
+                    <h6 class="pad">Lista przepisów</h6>
+                    <div class="input-group mb-2">
+                      <input class="form-control form-control-lg" type="search" placeholder="Wyszukaj gotowy posiłek:"
+                        formControlName="szukajPrzepisu">
+                    </div>
+                    <div class="col-12" id="wysw-pos">
+                      <ul class="list-group" *ngIf="formGroup.controls.szukajPrzepisu.value == ''">
+                        <li class="list-group-item" *ngFor="let przepis of wszystkiePrzepisy"
+                          (click)="WybierzPrzepis(przepis)" [class.active]="przepis == wybranyPrzepis">
+                          {{przepis.recipe_name}}
+                        </li>
+                      </ul>
+                      <ul class="list-group" *ngIf="formGroup.controls.szukajPrzepisu.value != ''">
+                        <li class="list-group-item" *ngFor="let przepis of przefiltrowanePrzepisy"
+                          (click)="WybierzPrzepis(przepis)" [class.active]="przepis == wybranyPrzepis">
+                          {{przepis.recipe_name}}
+                        </li>
+                      </ul>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="this.isVisible == 1">
+                    <div class="input-group mb-2">
+                      <input class="form-control form-control-lg" type="search"
+                        placeholder="Wybierz składnik:" formControlName="szukajSkladnika">
+                    </div>
+                    <div class="col-12 pb-2" id="wysw-skl">
+                      <ul class="list-group" *ngIf="formGroup.controls.szukajSkladnika.value == ''">
+                        <li class="list-group-item" *ngFor="let skladnik of wszystkieSkladniki"
+                          (click)="WybierzSkladnik(skladnik)" [class.active]="skladnik == wybranySkladnik">
+                          {{skladnik.name}}
+                        </li>
+                      </ul>
+                      <ul class="list-group" *ngIf="formGroup.controls.szukajSkladnika.value != ''">
+                        <li class="list-group-item" *ngFor="let skladnik of przefiltrowaneSkladniki"
+                          (click)="WybierzSkladnik(skladnik)" [class.active]="skladnik == wybranySkladnik">
+                          {{skladnik.name}}
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 form-group">
+                      <label>
+                        <h6>Ile gram składnika wykorzystasz?</h6>
+                        <input class="form-control" style="display: inline" placeholder="Gramy" type="number" min="0" formControlName="quantity">
+                      </label>
+                    </div>
+                    <div class="col-12 form-group">
+                      <button class="btn btn-primary" type="button" (click)="DodajSkladnik()" [disabled]="wybranySkladnik == null || formGroup.controls.quantity.value == '' || formGroup.controls.quantity.value == null">
+                        Dodaj skladnik
+                      </button>
+                    </div>
+                    <div>
+                      <a href="/dodaj-skladnik" target="_blank">Dodaj nieistniejący składnik</a>
+                    </div>
+                    <div class="form-group col-12 mt-2">
+                      <h4>Składniki:<span class="czcionka do-prawej">Ilość: | Gramy:</span></h4>
+                      <div id="wysw-skl">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item py-0" *ngFor="let skladnik of wybraneSKladniki">
+                            <button class="btn" type="button" (click)="usunSkladnik(skladnik)">
+                              <i class="fas fa-minus-circle fa-lg"></i>
+                            </button>
+                            {{skladnik.skladnik.name}}
+                            <span class="pt-2 do-prawej" *ngIf="skladnik.quantity != 0 && skladnik.quantity != null"
+                              >{{skladnik.quantity}} g</span>
+                            <!-- <span class="pt-2 do-prawej" *ngIf="skladnik.number != 0 && skladnik.number != null"
+                              >{{skladnik.number}} g</span> -->
+                              <!-- <input class="form-control" placeholder="Gramy" type="number" min="0" formControlName="gramatura"> -->
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </ng-container>
+
+                </div>
+                <div class="tab-pane" id="krok-4" style="width: 100%">
+                  <h6 class="pad">Kaloryczność posiłku</h6>
+                  <div class="form-group col-12 mt-2" style="width: 100%">
+                    <label>
+                      <input class="form-control" style="display: inline" placeholder="Gramy" type="number" min="0" formControlName="gramatura" >
+                    </label>
+                  </div>
+                </div>
+                <div class="tab-pane mb-2" id="krok-5" style="width: 100%">
+                  <h6 class="pad">Data spożycia</h6>
+                  <div class="input-group d-flex justify-content-center align-items-center">
+                    <ngb-timepicker class="mr-2" type="number" [(ngModel)]="czas" [ngModelOptions]="{standalone: true}">
+                    </ngb-timepicker>
+                    <ngb-datepicker class="ml-2" #dp [(ngModel)]="datePicker" (navigate)="dateFromPicker = $event.next"
+                      [ngModelOptions]="{standalone: true}" [startDate]="datePicker"></ngb-datepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary kolor"
+            (click)="Prev()">{{currentStep == 0 ? 'Zamknij' : 'Cofnij'}}</button>
+          <button type="button" class="btn btn-primary my-0 kolor" *ngIf="currentStep < 4" [disabled]="!this.formGroup.controls['nazwa'].valid"
+            (click)="Next()" [disabled]="(isVisible == 1 && wybraneSKladniki == null && currentStep == 2) || (currentStep == 0 && (formGroup.controls.nazwa.value == null || formGroup.controls.nazwa.value == ''))">
+            {{currentStep == 4 ? 'Zapisz' : 'Dalej'}}
+          </button>
+          <button type="submit" class="btn btn-success kolor" *ngIf="currentStep == 4" [disabled]="!czyPrzyciskDodajPosilekAktywny">
+            Zapisz posiłek
+          </button>
+        </div>
+        <div class="alert alert-warning col-auto mb-0" *ngIf="message.content != null">{{message.content}}</div>
+      </div>
+
+      <div class="col-3 d-flex align-items-end">
+
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">{{WybranyPosilek.meal_name}}
+      {{WybranyPosilek.date | date: 'HH:mm'}}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h5>{{WybranyPosilek.recipe_name}}</h5>
+    <h6>Skladniki:</h6>
+    <ul class="list-group" *ngFor="let skladnik of WybranyPosilek.ingredients">
+      <li class="list-group-item mb-1" *ngIf="skladnik.ingredient_name != null">
+        {{skladnik.ingredient_name}}
+        <span class="do-prawej" *ngIf="skladnik.quantity != '0'"> {{skladnik.quantity}} g</span>
+        <!-- <span class="do-prawej" *ngIf="skladnik.id_unit != '0'"> {{skladnik.id_unit  }} szt.</span> -->
+      </li>
+      <li class="list-group-item mb-1" *ngIf="skladnik.name != null">
+        {{skladnik.name}}
+        <span class="do-prawej" *ngIf="skladnik.quantity != '0' && skladnik.quantity != null"> {{skladnik.quantity}}
+          g</span>
+        <!-- <span class="do-prawej" *ngIf="skladnik.id_unit != '0' && skladnik.id_unit != null"> {{skladnik.id_unit}}
+          szt.</span> -->
+      </li>
+    </ul>
+    <!-- <h6>{{WybranyPosilek.}}</h6> -->
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="Usun(); modal.dismiss('Cross click');">
+      Usun
+    </button>
+  </div>
+</ng-template>
+
+<!-- <form class="modal fade" id="posilekModal" tabindex="-1" role="dialog" aria-labelledby="posilekModalLabel"
+    aria-hidden="true" [formGroup]="formGroup" (ngSubmit)="Zapisz()">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="posilekModalLabel">Dodaj Posiłek</h4>
+          <button id="close-modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" href="#Dodaj" data-toggle="tab" role="tab" aria-controls="Dodaj"
+                aria-selected="true">Dodaj posiłek z listy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link ml-2" href="#Make" data-toggle="tab" role="tab" aria-controls="Make"
+                aria-selected="false">Dodaj własny posiłek</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="Dodaj">
+              <div class="form row form-group card-body d-flex align-items-start mb-0 pb-0">
+                <div class="input-group text-center">
+                  <label>Ustal czas spożycia posiłku:</label>
+                  <ngb-timepicker type="number" class="mx-auto pb-2" [(ngModel)]="czas"
+                    [ngModelOptions]="{standalone: true}">
+                  </ngb-timepicker>
+                </div>
+                <div class="input-group mb-2">
+                  <input class="form-control form-control-lg" type="search" placeholder="Wyszukaj gotowy posiłek:"
+                    formControlName="szukajPrzepisu">
+                </div>
+                <div class="col-12" id="wysw-pos">
+                  <ul class="list-group" *ngIf="formGroup.controls.szukajPrzepisu.value == ''">
+                    <li class="list-group-item" *ngFor="let przepis of wszystkiePrzepisy"
+                      (click)="WybierzPrzepis(przepis)" [class.active]="przepis == wybranyPrzepis">
+                      {{przepis.recipe_name}}
+                    </li>
+                  </ul>
+                  <ul class="list-group" *ngIf="formGroup.controls.szukajPrzepisu.value != ''">
+                    <li class="list-group-item" *ngFor="let przepis of przefiltrowanePrzepisy"
+                      (click)="WybierzPrzepis(przepis)" [class.active]="przepis == wybranyPrzepis">
+                      {{przepis.recipe_name}}
+                    </li>
+                  </ul>
+                </div>
+                <div class="form-group col-12 col-sm-6 mt-2">
+                  <label>
+                    <h6 class="pad">Wybierz rodzaj posiłku</h6>
+                    <select class="form-control" formControlName="nazwa">
+                      <option value="Śniadanie">Śniadanie</option>
+                      <option value="Drugie Śniadanie">Drugie Śniadanie</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Obiad">Obiad</option>
+                      <option value="Przekąska">Przekąska</option>
+                      <option value="Podwieczorek">Podwieczorek</option>
+                      <option value="Kolacja">Kolacja</option>
+                      <option [selected]="value == null">Nie wybrano</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="form-group col-12 col-sm-6 mt-2">
+                  <label>
+                    <h6>Ile gram zawiera Twój posiłek?</h6>
+                    <input class="form-control" placeholder="Gramy" type="number" min="0" formControlName="gramatura">
+                  </label>
+                </div>
+                <div class="col-12 pt-2 pl-0 row">
+
+                  <div class="col-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success kolor" [disabled]="!czyPrzyciskDodajPosilekAktywny">
+                      Zapisz posiłek
+                    </button>
+                  </div>
+                  <div class="alert alert-warning col-auto mb-0" *ngIf="message.content != null">{{message.content}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Make">
+              <div class="form row card-body pb-0">
+                <div class="input-group text-center">
+                  <label>Ustal czas spożycia posiłku:</label>
+                  <ngb-timepicker class="mx-auto pb-2" [(ngModel)]="czas" [ngModelOptions]="{standalone: true}">
+                  </ngb-timepicker>
+                </div>
+                <div class="col-5">
+                  <label>Ile jest porcji posiłku?
+                    <input class="form-control" placeholder="Ilość" type="number" min="0" formControlName="quantity">
+                  </label>
+                </div>
+                <div class="col-2 d-flex align-items-center"><p class="w-100 text-center">lub</p></div>
+                <div class="col-5">
+                  <label>Ile gram zawiera Twój posiłek?
+                    <input class="form-control" placeholder="Gramy" type="number" min="0" formControlName="number">
+                  </label>
+                </div>
+                <div class="input-group mb-2">
+                  <input class="form-control form-control-lg" type="search" placeholder="Wyszukaj posiłek spośród składników:"
+                    formControlName="szukajSkladnika">
+                </div>
+                <div class="col-12 pb-2" id="wysw-skl">
+                  <ul class="list-group" *ngIf="formGroup.controls.szukajSkladnika.value == ''">
+                    <li class="list-group-item" *ngFor="let skladnik of wszystkieSkladniki"
+                      (click)="WybierzSkladnik(skladnik)" [class.active]="skladnik == wybraneSKladniki">
+                      {{skladnik.name}}
+                    </li>
+                  </ul>
+                  <ul class="list-group" *ngIf="formGroup.controls.szukajSkladnika.value != ''">
+                    <li class="list-group-item" *ngFor="let skladnik of przefiltrowaneSkladniki"
+                      (click)="WybierzSkladnik(skladnik)" [class.active]="skladnik == wybraneSKladniki">
+                      {{skladnik.name}}
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <a href="/dodaj-skladnik" target="_blank">Dodaj nieistniejący składnik</a>
+                </div>
+                <div class="form-group col-12 mt-2">
+                  <h4>Składniki:<span class="czcionka do-prawej">Ilość: | Gramy:</span></h4>
+                  <div id="wysw-skl">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item py-0" *ngFor="let skladnik of wybraneSKladniki">
+                        <button class="btn" type="button" (click)="usunSkladnik(skladnik)">
+                          <i class="fas fa-minus-circle fa-lg"></i>
+                        </button>
+                        {{skladnik.skladnik.name}}
+                        <span class="pt-2 do-prawej" *ngIf="skladnik.quantity != 0 && skladnik.quantity != null">{{skladnik.quantity}} szt.</span>
+                        <span class="pt-2 do-prawej" *ngIf="skladnik.number != 0 && skladnik.number != null">{{skladnik.number}} g</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group col-12 col-sm-6 mt-2">
+                  <label>
+                    <h6>Rodzaj posiłku</h6>
+                    <select class="form-control" formControlName="nazwa">
+                      <option value="Śniadanie">Śniadanie</option>
+                      <option value="Drugie Śniadanie">Drugie Śniadanie</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Obiad">Obiad</option>
+                      <option value="Przekąska">Przekąska</option>
+                      <option value="Podwieczorek">Podwieczorek</option>
+                      <option value="Kolacja">Kolacja</option>
+                      <option [selected]="value == null">Nie wybrano</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-12 pt-2 px-0 row">
+
+                  <div class="col-3 d-flex align-items-end">
+                    <input type="submit" class="btn btn-success kolor" placeholder="zapisz" value="Zapisz posiłek" [disabled]="!czyPrzyciskDodajPosilekAktywny">
+                  </div>
+                  <div class="alert alert-warning col-auto mb-0" *ngIf="message.content != null">{{message.content}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form> -->

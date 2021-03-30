@@ -1,0 +1,123 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="widok-dodawania-przepisu">
+  <div class="container bootstrap snippets">
+    <form class="form">
+      <div class="form-row form-group">
+        <div class="form-group col-12 col-md-4 d-flex justify-content-around">
+          <label for="file-input" class="d-flex justify-content-center">
+            <img style="width: 300px; height: 300px; border-radius: 5px;"
+              src="{{preview == null ? '../../assets/addthumbs_o_foto.jpg' : preview}}"
+              class="align-self-center img-fluid" alt="...">
+          </label>
+          <input class="d-none" id="file-input" type="file"/>
+        </div>
+        <div class="form-group col-12 col-md-8 form-row d-flex justify-content-around">
+          <div class="form-group col-12">
+            <label>
+              <h4>Nazwa</h4>
+              <input class="form-control" type="name" placeholder="Nazwa diety">
+            </label>
+          </div>
+          <div class="form-group col-12">
+            <label>
+              <h4>Czas trwania diety(dni)</h4>
+              <input class="form-control" type="number" min="0" placeholder="Ile dni">
+            </label>
+          </div>
+          <div class="form-group col-12">
+            <label for="Wybor">
+              <h4>Zmieniające się kalorie?</h4>
+              <input class="form-control" type="number" min="0" placeholder="changing_kcal">
+            </label>
+          </div>
+        </div>
+        <!-- Pod zdjęciem -->
+        <div class="form-group col-12">
+          <h4>Przepisy:
+            <!-- <span class="czcionka" id="do-prawej">Ilość: | Gramy:</span> -->
+          </h4>
+          <!-- ng-cont będzie -> jeśli są składniki to wyświetli -->
+          <ng-container>
+            <ul class="list-group">
+              <!-- button poniżej to czerwony minus, trzeba dodać metodę usuwającą dodany składnik -->
+              <li class="list-group-item py-0" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+                <button class="btn mt-0" type="button">
+                  <i class="fas fa-minus-circle fa-lg"></i>
+                  </button>
+                {{item}}
+                <!-- <span id="do-prawej">{{item.quantity}} {{item.weight}}g</span> -->
+              </li>
+            </ul>
+          </ng-container>
+          <!-- Tu jest plusik do dodania składników -->
+          <button class="btn mt-2" data-toggle="modal" data-target="#dodajModal" aria-haspopup="true"
+            aria-expanded="false" type="button"><i class="fas fa-plus-circle fa-lg"></i></button>
+        </div>
+        <div class="form-group col-12">
+          <label>
+            <h4>Opisz dietę:</h4>
+            <textarea class="form-control szer-textu" type="text" placeholder="Opis"></textarea>
+          </label>
+        </div>
+        <div>
+            <div class ="alert alert-danger" *ngIf="message1 != null" >{{message1}}</div>
+          <button class="btn btn-success mt-3" type="submit">Dodaj</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal fade" id="dodajModal" tabindex="-1" role="dialog" aria-labelledby="dodajModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="dodajModalLabel">Dodaj przepis</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form row card-body">
+            <div class="input-group mb-2">
+              <input class="form-control form-control-lg" type="search" placeholder="Szukaj przepisu">
+            </div>
+            <div class="col-12" id="wysw-skl">
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of [1,2,3,4,5,6,7,8]" style="cursor: pointer;">
+                  {{item}}
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="col-5">
+              <label>Ilość:
+                <input class="form-control" placeholder="Ilość" type="number" min="0" formControlName="quantity">
+              </label>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+              <p class="my-0 pt-2">lub</p>
+            </div>
+            <div class="col-5">
+              <label>Gramatura:
+                <input class="form-control" placeholder="Gramy" type="number" min="0" formControlName="weight">
+              </label>
+            </div> -->
+            <!-- <div class ="alert alert danger" *ngIf="message != null" >{{message}}</div> -->
+            <div>
+              <a href="/dodaj-przepis" target="_blank">Dodaj nieistniejący przepis</a>
+            </div>
+            <div class="col-12 row pt-2">
+                <!-- <label> -->
+                <div class="col-3">
+                  <input type="submit" class="btn btn-success" placeholder="zapisz" value="Dodaj" style="margin-top: 12px;">
+                </div>
+                <div class="alert alert-danger col-9" *ngIf="message != null">{{message}}
+                </div>
+                <!-- </label> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

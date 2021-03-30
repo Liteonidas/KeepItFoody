@@ -1,0 +1,74 @@
+﻿<!--Comfortaa font used in navigation bar-->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--Application KeepItFoody image-->
+  <a class="navbar-brand" href="#">
+      <img src="assets\logo.png" height="50" alt=""></a>
+  <!--Application KeepItFoody name-->
+  <a class="navbar-brand text-style" [routerLink]="['/home']">keep it foody</a>
+</nav>
+
+<!-- <img class="my-container" src="assets\burger-logowanie.jpg" type="background"> -->
+<div class="my-container d-flex justify-content-center" aria-setsize="100%">
+  <div class="row d-flex align-items-start">
+    <div id="logreg-forms">
+      <form class="form-signin" [formGroup]="form" (ngSubmit)="logowanie()">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Logowanie</h1>
+        <div class="social-login">
+          <button class="btn facebook-btn social-btn" type="button" (click)="logowaniePrzezSocialMedia(true)"><span><i
+                class="fab fa-facebook-f"></i> Facebook</span> </button>
+          <button class="btn google-btn social-btn" type="button" (click)="logowaniePrzezSocialMedia(false)"><span><i
+                class="fab fa-google"></i> Google</span> </button>
+        </div>
+        <p style="text-align:center"> lub </p>
+        <div class="alert alert-danger" *ngIf="czyZalogowano == false">
+          <button aria-label="Close" class="close" type="button" (click)="czyZalogowano = null; form.reset();"><i class="far fa-times-circle"></i></button>
+          {{message.content}}
+        </div>
+        <input type="email" class="form-control" placeholder="Adres e-mail " formControlName="email">
+        <div class="input-group">
+          <input type="password" class="form-control" formControlName="pass" id="passId" placeholder="Hasło">
+          <div class="input-group-append">
+            <span id="eye" class="input-group-text">
+              <i class="fa fa-eye" (mouseover)="show()" (mouseleave)="hide()"></i>
+            </span>
+          </div>
+        </div>
+        <!-- <a class="btn btn-success btn-block" [routerLink]="['/zalogowany']"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a> -->
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-user-plus"></i>
+          <i class="fas fa-sign-in-alt"></i> Zaloguj się
+        </button>
+        <!-- <a data-toggle="modal" data-target="#zap-haslo" id="forgot_pswd" style="cursor: pointer;">zapomniałeś hasła?</a> -->
+        <hr>
+        <!-- <p>Don't have an account!</p>  -->
+        <a class="btn btn-primary btn-block" [routerLink]="['/rejestracja']"><i class="fas fa-user-plus"></i> Załóż nowe
+          konto!</a>
+      </form>
+
+      <br>
+
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="zap-haslo" tabindex="-1" role="dialog" aria-labelledby="hasloTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Zapomniałeś hasła?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          <app-przypomnij-haslo></app-przypomnij-haslo>
+        </div>
+    </div>
+  </div>

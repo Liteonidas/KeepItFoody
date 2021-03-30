@@ -1,0 +1,33 @@
+.navbar {
+    background-color: #f4511e;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+}
+.navbar a:hover {
+    color: black;
+}
+.logoutBtn {
+    border-radius: 1px;
+}
+.col-sm-4 {
+    /* border: solid black 0.5px; */
+    text-align: center;
+    margin: 25px 0;
+}
+.col-sm-4:hover {
+    background-color: ghostwhite;
+}
+#dash a {
+    color: black; 
+}
+.logo-small {
+    color: #f4511e;
+    font-size: 50px;
+}
+#dash {
+    width: 60%;
+    padding: 60px 50px;
+}

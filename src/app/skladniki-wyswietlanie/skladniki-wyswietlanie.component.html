@@ -1,0 +1,186 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+
+<!-- <div class="container" id="pag"> -->
+  <!-- TA STRONA JEST NIEUŻYWANA -->
+
+<div class="tlo d-flex align-items-center">
+  <div class="container">
+    <div class="table-responsive wys">
+      <mat-form-field class="cs1 mat-form-sticky">
+        <input class="cs1" matInput (keyup)="applyFilter($event.target.value)" placeholder="Szukaj">
+      </mat-form-field>
+
+
+                                      <!-- TA STRONA NIE JEST UŻYWANA!!!!!!!!!!!!!!!!!! -->
+
+      <div class="mat-elevation-z8">
+        <table class="table-bordered table-sm" mat-table [dataSource]="skladniki" matSort>
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="ID">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.ID}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.name}}<br> <small>({{row.category}})</small> </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="energy">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Kaloryczność </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.energy}} kcal </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="protein">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Białko </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.protein}} g</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="carbohydrates">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Węglowodany </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.carbohydrates}} g</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="fats">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Tłuszcze </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.fats}} g</td>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container matColumnDef="fibre">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Błonnik </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.fibre}} g</td>
+          </ng-container>
+          <!-- [style.color]="row.color" -->
+
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="salt">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Sól </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row"> {{row.salt}} g</td>
+          </ng-container>
+
+          <ng-container matColumnDef="gluten">
+            <th class="cs px-2" mat-header-cell *matHeaderCellDef mat-sort-header> Alergeny </th>
+            <td class="cs px-2" mat-cell *matCellDef="let row">
+                <ng-container *ngIf="row.gluten == 1"><span id="do-prawej"> gluten</span></ng-container>
+                      <ng-container *ngIf="row.lactose == 1 && row.gluten == 1"><span id="do-prawej">, </span>
+                      </ng-container>
+                      <ng-container *ngIf="row.lactose == 1"><span id="do-prawej"> laktoza</span></ng-container>
+                      <ng-container *ngIf="row.lactose == 0 && row.gluten == 0"><span id="do-prawej">brak</span>
+                      </ng-container>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+      </div>
+
+      <mat-paginator class="cs1 mat-paginator-sticky" [pageSizeOptions]="[5, 10, 15, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+  <div class="col-12 mb-2" *ngFor="let skladnik of (this.zapytanie != null && this.zapytanie != undefined ? przefiltrowaneSkladniki : skladniki)">
+
+    <button class="btn text-left heavy-rain-gradient color-block" id="skladnik-border" data-toggle="modal" data-target="#skladnikModal"
+      aria-haspopup="true" aria-expanded="false" (click)="PrzygotujSkladnik(skladnik);">
+      <h6 class="card-title"><strong>{{skladnik.name}}</strong></h6>
+      <p class="card-text"><small class="text-muted">Kalorycznośc: {{FormatujWartosc(skladnik.energy)}}kcal, Białko: {{FormatujWartosc(skladnik.protein)}}g,
+          Węglowodany: {{FormatujWartosc(skladnik.carbohydrates)}}g,
+          Tłuszcze: {{FormatujWartosc(skladnik.fats)}}g, Błonnik: {{FormatujWartosc(skladnik.fibre)}}g, Sól: {{FormatujWartosc(skladnik.salt)}}g, Alergeny:
+          <ng-container *ngIf="skladnik.gluten == 1"> gluten </ng-container>
+          <ng-container *ngIf="skladnik.lactose == 1">laktoza</ng-container>
+          <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0">brak</ng-container>
+          Witaminy zakomentowane
+          , Inne:
+          {{skladnik.description}}
+        </small></p>
+    </button>
+
+
+
+  </div>
+</div>
+
+<div *ngIf="skladnik != null" class="col-12 modal fade" id="skladnikModal" tabindex="-1" role="dialog" aria-labelledby="skladnikModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="skladnikModalLabel">{{skladnik.name}} (100g)<br>({{skladnik.category}})</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Kalorycznośc: <span id="do-prawej">{{FormatujWartosc(skladnik.energy)}} kcal</span></li>
+                <li class="list-group-item">Białko: <span id="do-prawej">{{FormatujWartosc(skladnik.protein)}} g</span></li>
+                <li class="list-group-item">Węglowodany: <span id="do-prawej">{{FormatujWartosc(skladnik.carbohydrates)}} g</span></li>
+                <li class="list-group-item">Tłuszcze: <span id="do-prawej">{{FormatujWartosc(skladnik.fats)}} g</span></li>
+                <li class="list-group-item">Błonnik: <span id="do-prawej">{{FormatujWartosc(skladnik.fibre)}} g</span></li>
+                <li class="list-group-item">Sól: <span id="do-prawej">{{FormatujWartosc(skladnik.salt)}} g</span></li>
+                <li class="list-group-item">Alergeny:
+                  <ng-container *ngIf="skladnik.gluten == 1"><span id="do-prawej"> gluten </span></ng-container>
+                  <ng-container *ngIf="skladnik.lactose == 1 && skladnik.gluten == 1"><span id="do-prawej">, </span></ng-container>
+                  <ng-container *ngIf="skladnik.lactose == 1"><span id="do-prawej"> laktoza</span></ng-container>
+                  <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0"><span id="do-prawej">brak</span></ng-container>
+                </li>
+                Witaminy zakomentowane
+                <li class="list-group-item">Inne: <span id="do-prawej">{{skladnik.description}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->

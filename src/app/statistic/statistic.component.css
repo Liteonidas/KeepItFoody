@@ -1,0 +1,24 @@
+.btn {
+    float: right;
+    background-color: rgb(226, 226, 226);
+    border: #f4511e;
+    color: #f4511e;
+}
+
+.btn:hover {
+    background-color: #f4511e;
+    border: #f4511e;
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    color: #f4511e;
+    border: 0;
+}
+.bug{
+  border: none;
+}

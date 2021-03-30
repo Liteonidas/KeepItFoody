@@ -1,0 +1,50 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="tlo ods">
+  <div class="container my-0 py-0">
+      <div class="row text-center">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-warning" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                Poprzedni
+              </div>
+              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Dzisiaj
+              </div>
+              <div class="btn btn-warning" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                Następny
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 (click)="d.toggle()" style="cursor: pointer;">
+              <i class="fa fa-calendar fa-sm"></i>
+              {{ viewDate | calendarDate:(view + 'ViewTitle'):'pl' |  calendartitle}}
+            </h5>
+            <div class="col-8 text-center">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                #d="ngbDatepicker" hidden (ngModelChange)="ZmienionoDzien($event)">
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div style="min-width: 220px;"> </div>
+              <div class="btn btn-warning" id="bord" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+                Miesiąc
+              </div>
+              <div class="btn btn-warning" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+                Dzień
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div>
+          <mwl-calendar-month-view *ngIf="view === CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            [locale]="locale" [weekStartsOn]="weekStartsOn" (dayClicked)="dayClicked($event)">
+          </mwl-calendar-month-view>
+          <app-dziennik-dzien *ngIf="view === CalendarView.Day" [date]="viewDate" #dzien></app-dziennik-dzien>
+        </div>
+  </div>
+
+</div>

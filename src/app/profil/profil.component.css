@@ -1,0 +1,60 @@
+.avatar {
+    border-radius: 50%;
+}
+.container{
+  padding-top: 100px;
+  border-color: transparent;
+  background-color: transparent;
+}
+/* .srodek{
+  position: center;
+} */
+.krawedzie{
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  background:rgba(255,255,255,0.5);
+  padding-top: 15px;
+}
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/czyy.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+}
+
+.photo-container:hover .middle {
+  display: block;
+}
+
+.photo-container img {
+  opacity: 1;
+}
+
+.photo-container:hover img {
+  opacity: 0.3;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.kolor{
+  background-color: #f79862;
+  border-color: #f79862;
+}
+h1, a, a:hover {
+  color: #f79862;
+}

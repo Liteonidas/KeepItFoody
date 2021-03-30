@@ -1,0 +1,43 @@
+﻿<app-admin-navbar></app-admin-navbar>
+
+<div class="container bug">
+    <div class="form-group form-inline mt-2">
+        Wyszukiwarka: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="term" (ngModelChange)="filtruj()"/>
+    </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" sortable="id" (sort)="onSort($event)" style="cursor: pointer;">Id</th>
+        <th scope="col" sortable="first_name" (sort)="onSort($event)" style="cursor: pointer;">Imię</th>
+        <th scope="col" sortable="email" (sort)="onSort($event)" style="cursor: pointer;">e-mail</th>
+        <th scope="col" sortable="date_birth" (sort)="onSort($event)" style="cursor: pointer;">Data urodzenia</th>
+        <th scope="col" style="text-align: center">Aktywacja/Dezaktywacja</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.date_birth | date: 'yyyy-MM-dd'}}</td>
+        <td style="text-align: center">
+            <i class="fas fa-user-slash" title="Aktywuj" (click)="aktywuj(user)" style="cursor: pointer" *ngIf="user.activated ==  '0'"></i>
+            <i class="fas fa-check-circle " title="Dezaktywuj" (click)="dezaktywuj(user)" style="cursor: pointer" *ngIf="user.activated ==  '1'"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="zmienStrone($event)">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+      </select>
+  </div>
+</div>

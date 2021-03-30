@@ -1,0 +1,76 @@
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light col-12" id="margin-nav">
+  <a class="navbar-brand czcionka kolor" (click)="PrzekierujNaDzien()" style="cursor: pointer">
+    <img src="assets\logo.png" height="40" alt=""> keep it foody</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+          <a class="nav-link" (click)="PrzekierujNaDzien()" id="navbarDropdown"  style="cursor: pointer" role="button" >
+            Kalkulator żywieniowy
+          </a>
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Przepisy
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/przepisy']">Przepisy</a>
+          <a class="dropdown-item" [routerLink]="['/dodaj-przepis']">Dodaj przepis</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Składniki
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/Skladniki']">Składniki</a>
+          <a class="dropdown-item" [routerLink]="['/dodaj-skladnik']">Dodaj Składnik</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Specjaliści
+        </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" [routerLink]="['/specjalisci']">Znajdź specjalistę</a>
+        <a class="dropdown-item" [routerLink]="['/wspolpraca']">Podejmij współpracę</a>
+      </div>
+      <li class="nav-item" *ngIf="czyAdmin">
+        <a class="nav-link" [routerLink]="['/admin']" id="navbarDropdown" role="button" >
+          Panel administratora
+        </a>
+    </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+            <img src="{{ photo != 'null' ? 'https://192.168.134.62/api' + photo : 'https://st3.depositphotos.com/4111759/13425/v/1600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg'}}" style="height: 40px; width: 40px;" class="rounded-circle">
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{ username }}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/profil']">Mój profil</a>
+          <a class="dropdown-item" style="cursor:pointer" (click)= "wyloguj()">Wyloguj</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ngb-alert *ngIf="czyPokazacAlert" [type]="'danger'" (close)="close(alert)">
+  Aby w pełni korzystać z serwisu uzupełnij swoje dane!
+</ngb-alert>

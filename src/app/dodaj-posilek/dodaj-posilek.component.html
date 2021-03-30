@@ -1,0 +1,149 @@
+<!-- <app-zalogowany-navbar></app-zalogowany-navbar>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> -->
+<!-- <button mat-raised-button (click)="isOptional = !isOptional">
+    {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+  </button> -->
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true" id="dodaj-posilek-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Dodaj posiłek</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 block border-bottom">
+            <div class="wrapper-progressBar">
+              <ul class="progressBar nav">
+                <!-- activ w nav-item zaświeca kropki -->
+                <li class="nav-item"  [ngClass]="{'active': currentStep >= 0}" >
+                  <a class="nav-link" href="#krok-1" data-toggle="tab" id="step-1" role="tab" aria-controls="krok-1"
+                    aria-selected="true" (click)="currentStep=0;">1</a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active': currentStep >= 1}">
+                  <a class="nav-link" href="#krok-2" data-toggle="tab" id="step-2" role="tab" aria-controls="krok-2"
+                    aria-selected="false" (click)="currentStep=1;">2</a>
+                </li>
+                <li class="nav-item " [ngClass]="{'active': currentStep >= 2}">
+                  <a class="nav-link" href="#krok-3" data-toggle="tab" id="step-3" role="tab" aria-controls="krok-3"
+                    aria-selected="false" (click)="currentStep=2;">3</a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active': currentStep >= 3}">
+                  <a class="nav-link" href="#krok-4" data-toggle="tab" id="step-4" role="tab" aria-controls="krok-4"
+                    aria-selected="false" (click)="currentStep=3;">4</a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active': currentStep >= 4}">
+                  <a class="nav-link" href="#krok-5" data-toggle="tab" id="step-5" role="tab" aria-controls="krok-5"
+                    aria-selected="false" (click)="currentStep=4;">5</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Wyswietla zawartosc zakladek -->
+        <div class="row mt-3">
+          <div class="col-12" style="width: 100%">
+            <div class="tab-content d-flex justify-content-center" style="width: 100%">
+              <!-- tab-pane wyswietla poszczegolne zakladki -->
+              <div class="tab-pane active" id="krok-1" style="width: 100%">
+                <label>
+                  <h6 class="pad">Wybierz rodzaj posiłku</h6>
+                  <select class="form-control">
+                    <option value="Śniadanie">Śniadanie</option>
+                    <option value="Drugie Śniadanie">Drugie Śniadanie</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Obiad">Obiad</option>
+                    <option value="Przekąska">Przekąska</option>
+                    <option value="Podwieczorek">Podwieczorek</option>
+                    <!-- <option value="Produkty zbożowe">Produkty zbożowe</option> NIE WIEM SKĄD TO   -->
+                    <option value="Kolacja">Kolacja</option>
+                    <option [selected]="value == null">Nie wybrano</option>
+                  </select>
+                </label>
+              </div>
+              <div class="tab-pane" id="krok-2" style="width: 100%">
+                <h6 class="pad">Posiłek z przepisu czy składnika</h6>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio1">Skomponuj własny posiłek</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio2">Użyj gotwych przepisów</label>
+                </div>
+                <!-- <button class="btn btn-warning mr-1" id="posWlasny">
+                        Skomponuj własny posiłek
+                      </button>
+                      <button class="btn btn-warning" id="posZprzep">
+                        Użyj gotwych przepisów
+                      </button> -->
+              </div>
+              <div class="tab-pane" id="krok-3" style="width: 100%">
+                <h6 class="pad">Lista składników/przepisów</h6>
+                <div class="input-group mb-2">
+                  <input class="form-control form-control-lg" type="search" placeholder="Wyszukaj gotowy posiłek:">
+                </div>
+                <div class="col-12" id="wysw-pos">
+                  <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let przepis of [1, 2, 3]">
+                                            {{przepis}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="tab-pane" id="krok-4" style="width: 100%">
+                <h6 class="pad">Gramatura poosiłku</h6>
+                <div class="form-group col-12 mt-2">
+                  <label>
+                    <h6>Ile gram zawiera Twój posiłek?</h6>
+                    <input class="form-control" placeholder="Gramy" type="number" min="0">
+                  </label>
+                </div>
+              </div>
+              <div class="tab-pane" id="krok-5" style="width: 100%">
+                <h6 class="pad">Data spożycia</h6>
+                <div class="input-group d-flex justify-content-center align-items-center">
+                  <!-- <label>Ustal czas spożycia posiłku:</label> -->
+                  <ngb-timepicker class="mr-2" [(ngModel)]="czas" [ngModelOptions]="{standalone: true}">
+                  </ngb-timepicker>
+                  <ngb-datepicker class="ml-2" #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="Prev()">{{currentStep == 0 ? 'Zamknij' : 'Cofnij'}}</button>
+        <button type="button" class="btn btn-primary" (click)="Next()">{{currentStep == 4 ? 'Zapisz' : 'Dalej'}}</button>
+      </div>
+    </div>
+  </div>
+</div>

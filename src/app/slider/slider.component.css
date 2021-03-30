@@ -1,0 +1,17 @@
+.header-text-style{
+    font-family: 'Comfortaa', cursive;
+    font-size: 300%;
+    text-shadow: 1px 1px 2px black;
+}
+.description-text-style{
+    font-size: 150%;
+}
+.image-options{
+    -webkit-filter: brightness(70%);
+}
+.image-options2{
+    -webkit-filter: brightness(50%);
+}
+.slider-options{
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

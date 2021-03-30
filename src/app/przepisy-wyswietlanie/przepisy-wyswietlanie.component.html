@@ -1,0 +1,95 @@
+<!-- Stary widok - problem ze zdjęciami -->
+<!-- <div class="row card-deck">
+  <div class="col-md-6 col-lg-4 col-xl-3 col-xs-6 px-0" *ngFor="let przepis of (this.szukajp != undefined ? przefiltrowanePrzepisy : przepisy)" id="przepis">
+    <div class="card" (click)="open(content, przepis)" style="cursor: pointer;">
+      <img class="card-img"
+        src="{{przepis.recipe_photo == null? 'https://meskon.pl/site_media/images/grafiki_sklepu/thumbs_no_foto.jpg' : 'https://192.168.134.62/api' + przepis.recipe_photo}}"
+        alt="Alternatywny opis obrazka">
+      <div class="card-header">
+        <h6 class="card-title">{{przepis.recipe_name}} </h6>
+        <p class="card-text">Trudność: {{przepis.difficulty}}</p>
+      </div>
+    </div>
+    <br>
+  </div>
+</div> -->
+<!-- Nowy widok -->
+<div class="row card-deck">
+  <div class="col-12 mb-3" *ngFor="let przepis of (this.szukajp != undefined ? przefiltrowanePrzepisy : przepisy)">
+    <div class="card mx-0" (click)="open(content, przepis)" style="cursor: pointer;">
+      <div class="row no-gutters">
+        <div class="col-auto zdjecie-przepisu" [style.background-image]="backgroundImage(przepis.recipe_photo)">
+          <!-- <img id="proporcje" src="" class="rounded float-left" alt="Alternatywny opis obrazka"> -->
+        </div>
+        <div class="col">
+          <div class="card-block px-3">
+            <h4 class="card-title pt-2">{{przepis.recipe_name}}</h4>
+            <p class="card-text">Trudność: {{przepis.difficulty}}/5</p>
+            <small style="white-space: pre-line">Sposób przygotowania: <br> {{przepis.prepare}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer w-100 text-muted row" id="marg">
+        <div class=" col-auto pl-0">
+          <!-- <img src="https://cdn.pixabay.com/photo/2015/07/20/13/01/fred-852770_960_720.jpg" style="height: 40px" class="rounded-circle" alt="Cinque Terre"> -->
+          <img src="{{przepis.user_photo != null ? 'https://192.168.134.62/api' + przepis.user_photo : 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png'}}" style="height: 40px; width: 40px;" class="rounded-circle" alt="Cinque Terre">
+        </div>
+        <div class="d-flex align-items-center">
+            Autor: {{przepis.first_name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Do tąd nowy widok -->
+
+
+<ng-template #content let-modal>
+  <div class="modal-header ">
+    <h4 class="modal-title" id="modal-basic-title">{{przepis.recipe_name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row media">
+      <div class="col-6 d-flex justify-content-center">
+        <img style="width: 300px; height: 200px; object-fit: cover;"
+          src="{{przepis.recipe_photo == null? 'https://meskon.pl/site_media/images/grafiki_sklepu/thumbs_no_foto.jpg' : 'https://192.168.134.62/api' + przepis.recipe_photo}}"
+          class="align-self-center" alt="...">
+      </div>
+      <div class="media-body col-6 row">
+        <div class="col-12">
+          <h5>Czas przygotowania: {{przepis.preparing_time}} min</h5>
+        </div>
+        <div class="col-12">
+          <h5>Trudność: {{przepis.difficulty}}/5</h5>
+        </div>
+        <div class="col-12">
+          <h5>
+              <img src="{{przepis.user_photo != null ? 'https://192.168.134.62/api' + przepis.user_photo : 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png'}}" style="height: 40px" class="rounded-circle" alt="Cinque Terre">
+              Autor: {{przepis.first_name}}
+          </h5>
+          </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="przepis.skladniki != null">
+      <div class="col-12 mt-2">
+        <h5>Składniki: </h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let skladnik of przepis.skladniki" placement="top" style="cursor: pointer;"
+            ngbPopover="Kaloryczność: {{skladnik.energy}}g Białko:{{skladnik.protein}}g Węglowodany:{{skladnik.carbohydrates}}g Tłuszcze:{{skladnik.fats}}g Błonnik:{{skladnik.fibre}}g Sól:{{skladnik.salt}}g"
+            popoverTitle="{{skladnik.ingredient_name}} Zawartość w 100g">
+            {{skladnik.ingredient_name}}<span *ngIf="skladnik.quantity != 0" id="do-prawej">{{skladnik.quantity}} g</span>
+            <!-- <span *ngIf="skladnik.id_unit != 0" id="do-prawej">{{skladnik.id_unit}} g </span> -->
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 mt-2">
+        <h5>Sposób przygotowania:</h5>
+        <p style="white-space: pre-line">{{przepis.prepare}}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,31 @@
+.container{
+  margin-top: 100px;
+}
+#styl-szukaj-przepis{
+  font-style: normal;
+}
+#szukaj-przepis{
+  background-color: #f79862;
+}
+.kraw{
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+#szukaj-radius{
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+
+}
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/przepisy.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+}

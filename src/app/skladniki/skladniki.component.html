@@ -1,0 +1,233 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="tlo">
+
+
+  <div class="container-fluid kolor mt-0 col-9">
+    <div class="form-group form-inline mt-2">
+      <b style="color: black">Szukaj:</b>
+      <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="term" (ngModelChange)="filtruj()" />
+      <!-- <b class="bialy-znak" style="color: black">   Kategoria:</b>
+      <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="termKat" (ngModelChange)="filtrujKat()" /> -->
+      <label for="Wybor">
+          <b class="bialy-znak">   Kategoria: </b>
+          <select name="Wybor" class="form-control" [(ngModel)]="termKat" (ngModelChange)="filtrujKat()">
+            <option termKat="Wszystkie" selected>Wszystkie</option>
+            <option termKat="Bakalie i nasiona">Bakalie i nasiona</option>
+            <option termKat="Cukier i przetwory cukiernicze">Cukier i przetwory cukiernicze</option>
+            <option termKat="Mięso i przetwory mięsne">Mięso i przetwory mięsne</option>
+            <option termKat="Nabiał i jaja">Nabiał i jaja</option>
+            <option termKat="Napoje">Napoje</option>
+            <option termKat="Owoce i przetwory owocowe">Owoce i przetwory owocowe</option>
+            <option termKat="Produkty zbożowe">Produkty zbożowe</option>
+            <option termKat="Ryby i przetwory rybne">Ryby i przetwory rybne</option>
+            <option termKat="Tłuszcze">Tłuszcze</option>
+            <option termKat="Warzywa i przetwory warzywne">Warzywa i przetwory warzywne</option>
+            <option termKat="Pozostałe">Pozostałe</option>
+          </select>
+        </label>
+    </div>
+    <div class="table-responsive wys">
+      <table class="table table-striped table-bordered" id="bor">
+          <!-- table-sm -->
+        <thead>
+          <tr>
+            <th scope="col" sortable="name" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Nazwa</th>
+            <th scope="col" sortable="energy" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Energia</th>
+            <th scope="col" sortable="protein" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Białko</th>
+            <th scope="col" sortable="carbohydrates" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Węglowodany</th>
+            <th scope="col" sortable="fats" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Tłuszcze</th>
+            <th scope="col" sortable="fibre" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Błonnik</th>
+            <th scope="col" sortable="salt" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Sól</th>
+            <th scope="col" sortable="lactose" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Laktoza:</th>
+            <th scope="col" sortable="gluten" (sort)="onSort($event)" style="cursor: pointer; background-color: #f79862; color: white;">Gluten:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let skladnik of skladniki">
+            <td>{{skladnik.name}} <small>({{skladnik.category}})</small></td>
+            <td>{{skladnik.energy | number: '1.0-2'}} kcal</td>
+            <td>{{skladnik.protein | number: '1.0-2'}} g</td>
+            <td>{{skladnik.carbohydrates | number: '1.0-2'}} g</td>
+            <td>{{skladnik.fats | number: '1.0-2'}} g</td>
+            <td>{{skladnik.fibre | number: '1.0-2'}} g</td>
+            <td>{{skladnik.salt | number: '1.0-2'}} g</td>
+            <td>
+                      <!-- <ng-container *ngIf="skladnik.gluten == 1"><span id="do-prawej"> gluten </span></ng-container> -->
+                      <ng-container *ngIf="skladnik.lactose == 1"><i class="fas fa-check-circle" style="width: 100%"></i></ng-container>
+                      <ng-container *ngIf="skladnik.lactose == 0"><i class="far fa-times-circle" style="width: 100%"></i></ng-container>
+                      <!-- <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0"><span id="do-prawej">brak</span></ng-container> -->
+            </td>
+            <td>
+                      <ng-container *ngIf="skladnik.gluten == 1"><i class="fas fa-check-circle" style="width: 100%"></i></ng-container>
+                      <ng-container *ngIf="skladnik.gluten == 0"><i class="far fa-times-circle" style="width: 100%"></i></ng-container>
+                      <!-- <ng-container *ngIf="skladnik.lactose == 1"><span id="do-prawej"> laktoza</span></ng-container>
+                      <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0"><span id="do-prawej">brak</span></ng-container> -->
+            </td>
+            <!-- <ng-template #content let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title" id="skladnikModalLabel">{{skladnik.name}} (100g)<br>({{skladnik.category}})</h5>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Kalorycznośc: <span id="do-prawej">{{skladnik.energy}} kcal</span></li>
+                    <li class="list-group-item">Białko: <span id="do-prawej">{{skladnik.protein}} g</span></li>
+                    <li class="list-group-item">Węglowodany: <span id="do-prawej">{{skladnik.carbohydrates}} g</span></li>
+                    <li class="list-group-item">Tłuszcze: <span id="do-prawej">{{skladnik.fats}} g</span></li>
+                    <li class="list-group-item">Błonnik: <span id="do-prawej">{{skladnik.fibre}} g</span></li>
+                    <li class="list-group-item">Sól: <span id="do-prawej">{{skladnik.salt}} g</span></li>
+                    <li class="list-group-item">Alergeny:
+                      <ng-container *ngIf="skladnik.gluten == 1"><span id="do-prawej"> gluten </span></ng-container>
+                      <ng-container *ngIf="skladnik.lactose == 1 && skladnik.gluten == 1"><span id="do-prawej">, </span>
+                      </ng-container>
+                      <ng-container *ngIf="skladnik.lactose == 1"><span id="do-prawej"> laktoza</span></ng-container>
+                      <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0"><span id="do-prawej">brak</span>
+                      </ng-container>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </ng-template> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="10" [pageSize]="pageSize" [boundaryLinks]="true"
+        (pageChange)="zmienStrone($event)">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (change)="zmienStrone($event)">
+        <option [ngValue]="15" >15 składników</option>
+        <option [ngValue]="30" >30 składników</option>
+        <option [ngValue]="50" >50 składników</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="skladnik != null" class="col-12 modal fade" id="skladnikModal" tabindex="-1" role="dialog"
+    aria-labelledby="skladnikModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+ -->
+
+
+ <!-- <ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="skladnikModalLabel">{{skladnik.name}} (100g)<br>({{skladnik.category}})</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Kalorycznośc: <span id="do-prawej">{{skladnik.energy}} kcal</span></li>
+        <li class="list-group-item">Białko: <span id="do-prawej">{{skladnik.protein}} g</span></li>
+        <li class="list-group-item">Węglowodany: <span id="do-prawej">{{skladnik.carbohydrates}} g</span></li>
+        <li class="list-group-item">Tłuszcze: <span id="do-prawej">{{skladnik.fats}} g</span></li>
+        <li class="list-group-item">Błonnik: <span id="do-prawej">{{skladnik.fibre}} g</span></li>
+        <li class="list-group-item">Sól: <span id="do-prawej">{{skladnik.salt}} g</span></li>
+        <li class="list-group-item">Alergeny:
+          <ng-container *ngIf="skladnik.gluten == 1"><span id="do-prawej"> gluten </span></ng-container>
+          <ng-container *ngIf="skladnik.lactose == 1 && skladnik.gluten == 1"><span id="do-prawej">, </span>
+          </ng-container>
+          <ng-container *ngIf="skladnik.lactose == 1"><span id="do-prawej"> laktoza</span></ng-container>
+          <ng-container *ngIf="skladnik.lactose == 0 && skladnik.gluten == 0"><span id="do-prawej">brak</span>
+          </ng-container>
+        </li>
+         Witaminy zakomentowane -->
+        <!-- <li class="list-group-item">Inne: <span id="do-prawej">{{skladnik.description}}</span></li> -->
+      <!-- </ul>
+    </div>
+  </div>
+</ng-template>  -->
+
+
+
+</div>
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row my-margin d-flex justify-content-center">
+      <div class="col-8 col-sm-8 col-xl-8 px-0">
+        <div class="card card-sm border-0 przezroczystosc">
+          <form class="form row card-body no-gutters px-0 przezroczystosc" [formGroup]="formw" (ngSubmit)="wyszukaj()">
+            <div class="input-group col-7 col-lg-7 col-xl-5 pt-2 pl-2">
+
+              <input class="form-control form-control-lg" type="search" placeholder="Szukaj składników"
+                formControlName="szukaj" id="szukaj-radius">
+
+            </div>
+
+            <div class="col-auto pt-2">
+              <button class="btn btn-lg" id="szukaj" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+                <i><strong id="styl-szukaj"> Szukaj</strong></i>
+              </button>
+            </div>
+
+
+
+            <div class="card-body col-12 col-xl-3 pt-2 pl-2" id="kat-css">
+              <label for="kategorie">
+                <select class="form-control-lg" id="kategorie" name="kategorie"
+                  (change)="KategoriaChanged($event.target.value)">
+
+                  <option value="">Wszystko</option>
+                  <option value="Bakalie i nasiona">Bakalie i nasiona</option>
+                  <option value="Cukier i przetwory cukiernicze">Cukier i przetwory cukiernicze</option>
+                  <option value="Mięso i przetwory mięsne">Mięso i przetwory mięsne</option>
+                  <option value="Nabiał i jaja">Nabiał i jaja</option>
+                  <option value="Napoje">Napoje</option>
+                  <option value="Owoce i przetwory owocowe">Owoce i przetwory owocowe</option>
+                  <option value="Produkty zbożowe">Produkty zbożowe</option>
+                  <option value="Ryby i przetwory rybne">Ryby i przetwory rybne</option>
+                  <option value="Tłuszcze">Tłuszcze</option>
+                  <option value="Warzywa i przetwory warzywne">Warzywa i przetwory warzywne</option>
+                  <option value="Fourth Choice">Pozostałe</option>
+                </select>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 pl-2">
+      <app-skladniki-wyswietlanie [zapytanie]="this.szukaj" [kategory]="this.kategoria"></app-skladniki-wyswietlanie>
+    </div>
+
+  </div> -->
+
+
+
+
+<!--
+  Bakalie i nasiona
+  Cukier i przetwory cukiernicze
+  Mięso i przetwory mięsne
+  Nabiał i jaja
+  Napoje
+  Owoce i przetwory owocowe
+  Produkty zbożowe
+  Ryby i przetwory rybne
+  Tłuszcze
+  Warzywa i przetwory warzywne
+  Pozostałe
+-->
+<!-- </div> -->

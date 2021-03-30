@@ -1,0 +1,214 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="tlo">
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-6 text-center">
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="container-fluid">
+    <div class="row d-flex justify-content-center"> -->
+  <!-- <div class="col-9 mt-5">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <input class="form-control" type="text" [(ngModel)]="szukaj" (ngModelChange)="Filtruj()"
+            placeholder="Szukaj specialisty">
+        </nav> -->
+  <!-- <div class="col-9 mt-5 bac">
+          <input matInput type="search" placeholder="Szukaj specialisty" [(ngModel)]="szukaj" (ngModelChange)="Filtruj()">
+          <button mat-button *ngIf="szukaj" matSuffix mat-icon-button aria-label="Clear" (click)="szukaj=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div> -->
+
+  <!-- <div class="form-group form-inline col-8 kolorspec pl-0 mr-0 pr-0">
+            <input class="form-control form-control-lg kraw-szukaj mr-0" style="width: 100%;" type="text" name="searchTerm"
+            [(ngModel)]="szukaj" (ngModelChange)="Filtruj()"/>
+        </div>
+
+        <div class="col-auto pt-0 pl-0 pr-0">
+          <button class="btn btn-lg kraw" id="szukaj-speca">
+            <i class="fas fa-search fa-sm"></i>
+            <i><strong id="styl-szukaj-przepis"> Szukaj</strong></i>
+          </button>
+        </div> -->
+  <!-- <div class="input-group col-8 pt-2 pl-3">
+
+            <input class="form-control form-control-lg" type="search" placeholder="Szukaj"
+            [(ngModel)]="szukaj" (ngModelChange)="Filtruj()" id="szukaj-radius">
+
+          </div> -->
+  <!-- </div> -->
+  <!-- </div>
+
+  </div> -->
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+      <div class="form-group form-inline col-8 kolorspec mr-0 pr-0" style="padding-left: 66px">
+        <!-- <b style="color: black">Szukaj:</b> -->
+        <input class="form-control form-control-lg kraw-szukaj mr-0" style="width: 100%;" type="text" name="searchTerm"
+          [(ngModel)]="szukaj" (ngModelChange)="Filtruj()" />
+      </div>
+
+      <div class="col-2 pt-0 pl-0" style="padding-right: 66px">
+        <button class="btn btn-lg kraw" id="szukaj-speca" style="width: 100%;">
+          <i class="fas fa-search fa-sm"></i>
+          <i><strong id="styl-szukaj-przepis"> Szukaj</strong></i>
+        </button>
+      </div>
+      <div class="col-9 mt-5">
+        <div class="row card-deck">
+          <div class="col-md-6 col-lg-4 col-xl-3 col-xs-6 px-0 mb-4"
+            *ngFor="let specialista of (szukaj == null || szukaj == '' ? specialisciWszyscy : specialisciPrzefiltrowani)">
+            <div class="card">
+              <img class="card-img-top mt-0" src="{{'https://192.168.134.62/api/' + specialista.picture}}"
+                alt="Błąd zdjęcia">
+              <div class="card-body">
+                <h5 class="card-title">{{specialista.name}} {{specialista.surname}}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <!-- <li class="list-group-item"><a href="mailto:{{specialista.email}}">{{specialista.email}}</a></li> -->
+                <li class="list-group-item">{{specialista.profession}}</li>
+                <!-- <li class="list-group-item">{{specialista.experience}}</li> -->
+                <li class="list-group-item">{{specialista.specialization}}</li>
+                <li class="list-group-item"> <button type="button" class="btn przycisk"
+                    (click)="Contact(specialista);">Skontaktuj się</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-auto" id=dolocz> -->
+  <!-- <button mat-raised-button color="warn">Podejmij współpracę</button> -->
+  <!-- <div class="example-button-row" id=dolocz>
+    <button mat-fab color="warn" id="ramka" style="box-shadow: none;">Podejmij współpracę</button>
+  </div> -->
+  <!-- </div> -->
+
+  <!-- <div class="box">
+    <div class="box__content">
+      <div class="box__title">Podejmij współpracę</div>
+      <div class="box__description">
+        Jesteś Specjalistą?<br>
+        Podejmij z nami współpracę!<br>
+        Wypełnij formularz kontaktowy.<br>
+        <br>
+        <div class="example-button-row text-center">
+          <button mat-raised-button color="primary" (click)="openVerticallyCentered(content)">Dołącz!</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <ng-template #content let-modal>
+    <form [formGroup]="form" (ngSubmit)="Dodaj()">
+      <div class="modal-header">
+        <h4 class="modal-title">Formularz specjalisty</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="example-container">
+          <!-- <div class="form-group">
+                    <input class="form-control" placeholder="Nazwisko" formControlName="lastname">
+                  </div> -->
+
+          <mat-form-field hintLabel="">
+            <!-- <input matInput #input placeholder="Nazwisko"> -->
+            <input matInput placeholder="Imię" formControlName="firstname">
+            <mat-error *ngIf="form.controls['firstname'].errors?.required">Imię jest niezbędne!</mat-error>
+            <!-- <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint> -->
+          </mat-form-field>
+
+          <mat-form-field hintLabel="">
+            <!-- <input matInput #input placeholder="Nazwisko"> -->
+            <input matInput placeholder="Nazwisko" formControlName="lastname">
+            <mat-error *ngIf="form.controls['lastname'].errors?.required">Nazwisko jest niezbędne!</mat-error>
+            <!-- <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint> -->
+          </mat-form-field>
+
+
+          <!-- <div class="form-group">
+                    <select class="form-control" placeholder="Wykształcenie" formControlName="education">
+                      <option value="Wykształcenie podstawowe">Wykształcenie podstawowe</option>
+                      <option value="Wykształcenie gimnazjalne">Wykształcenie gimnazjalne</option>
+                      <option value="Wykształcenie zawodowe">Wykształcenie zawodowe</option>
+                      <option value="Wykształcenie średnie">Wykształcenie średnie</option>
+                      <option value="Wykształcenie wyższe">Wykształcenie wyższe</option>
+                    </select>
+                  </div> -->
+
+          <mat-form-field>
+            <mat-select placeholder="Zawód" formControlName="education">
+              <!-- <mat-option class="cdk-overlay-container" value="option">Wykształcenie podstawowe</mat-option> -->
+              <mat-option value="Trener personalny">Trener personalny</mat-option>
+              <mat-option value="Dietetyk">Dietetyk</mat-option>
+              <!-- <mat-option value="Wykształcenie zawodowe">Wykształcenie zawodowe</mat-option>
+              <mat-option value="Wykształcenie średnie">Wykształcenie średnie</mat-option>
+              <mat-option value="Wykształcenie wyższe">Wykształcenie wyższe</mat-option> -->
+              <!-- <mat-option value="option">Wykształcenie wyższe</mat-option> -->
+            </mat-select>
+            <!-- <mat-hint align="end">Here's the dropdown arrow ^</mat-hint> -->
+          </mat-form-field>
+
+          <!-- <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Doświadczenie"  formControlName="experience">
+                  </div> -->
+
+          <!-- <mat-form-field>
+            <textarea matInput placeholder="Doświadczenie"></textarea>
+            <textarea matInput type="text" placeholder="Doświadczenie"
+              formControlName="experience"></textarea>
+            <mat-error *ngIf="form.controls['experience'].value != null && form.controls['experience'].errors?.required">Pole jest wymagane!</mat-error>
+          </mat-form-field> -->
+
+          <!-- <div class="form-group">
+                    <input class="form-control" placeholder="Specjalizacja"  formControlName="specialization">
+                  </div> -->
+
+          <mat-form-field hintLabel="">
+            <!-- <input matInput #input placeholder="Specjalizacja"> -->
+            <input matInput placeholder="Specjalizacja" formControlName="specialization">
+            <mat-error *ngIf="form.controls['specialization'].errors?.required">Pole jest wymagane!</mat-error>
+            <!-- <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint> -->
+          </mat-form-field>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button color="primary" type="submit" (click)="modal.close('Close click')"
+          [disabled]="form.invalid">Wyślij</button>
+        <!-- <button mat-raised-button color="warn" (click)="czysc()">Czyść</button> -->
+        <!-- (click)="modal.close('Close click')" -->
+        <!-- <div *ngIf="message.content != null" class="alert alert-warning" role="alert">
+                {{message.content}}
+            </div> -->
+      </div>
+    </form>
+  </ng-template>
+  <!-- W bazie do zmiany formularz tak jak tu jest zrobiony -->
+  <button id="open-modal-sp" class="btn btn-success mt-3" type="submit" data-toggle="modal" data-target="#modalCenter"
+    style="display: none"></button>
+  <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header alert alert-warning mb-0">
+          <div class="modal-title text-center col-11" *ngIf="this.message.content != null" id="ModalLongTitle">
+            {{message.content}}</div>
+          <button type="button" class="close ml-0 col-1" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" id="do-prawej">&times;</span>
+          </button>
+        </div>
+        <!-- <div class="modal-body alert alert-warning text-center" *ngIf="this.Message != null">
+          {{Message}}
+      </div> -->
+        <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> -->
+      </div>
+    </div>
+  </div>

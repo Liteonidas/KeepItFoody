@@ -1,0 +1,25 @@
+<div id="logreg-forms mx-0 my-0">
+    <form class="form-signin" [formGroup]="form" (ngSubmit)="przypomnijHaslo()">
+        <div class="text-center">
+            <h3><i class="fa fa-lock fa-4x"></i></h3>
+            <h2 class="text-center">Zapomniałeś Hasła?</h2>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+              <input type="email" id="user-email" class="form-control" placeholder="Adres e-mail"
+                formControlName="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <input name="recover-submit" class="btn btn-lg btn-block" style="background-color: #f79862" value="Resetuj"
+              type="submit">
+          </div>
+
+          <input type="hidden" class="hide" name="token" id="token" value="">
+    </form>
+
+  </div>
+
+  <div class="alert alert-danger" *ngIf="form.controls.email.errors != null">Nie poprawny adres mailowy</div>
+  <div class="alert alert-warning" *ngIf="czyZarejestrowano == false">{{message}}</div>

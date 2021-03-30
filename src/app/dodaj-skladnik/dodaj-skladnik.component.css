@@ -1,0 +1,67 @@
+/*#forma {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+}*/
+
+/*#widok-dodawania-skladnika {
+  width: max-content;
+}*/
+
+.form-group{
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+  width: 100%;
+}
+
+label{
+  width: 100%;
+}
+.container{
+  border: 1px solid rgb(189, 102, 4);
+  border-radius: 10px;
+  /* margin-top: 5%; */
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background:rgba(255,255,255,0.5);
+}
+/* .widok-dodawania-skladnika{
+  background-image: url('../../assets/skladniki-2.jpg');
+  width:cover 100%;
+  height: 100%;
+  padding-top: 5%;
+  background-size:cover;
+} */
+.widok-dodawania-skladnika{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/amozezielony.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+  padding-top: 100px;
+}
+
+#do-prawej{
+  float: right;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+border-left: 5px solid #a94442; /* red */
+}
+
+/* mat-checkbox{
+  background-color: #f79862;
+} */

@@ -1,0 +1,134 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="widok-dodawania-przepisu">
+  <div class="container bootstrap snippets">
+    <form class="form" [formGroup]="form" (ngSubmit)="zapisz()">
+      <div class="form-row form-group">
+        <div class="form-group col-12 col-md-4 d-flex justify-content-around">
+          <label for="file-input" class="d-flex justify-content-center">
+            <img style="width: 300px; height: 300px; border-radius: 5px;"
+              src="{{preview == null ? '../../assets/addthumbs_o_foto.jpg' : preview}}"
+              class="align-self-center img-fluid" alt="...">
+          </label>
+          <input class="d-none" id="file-input" type="file" (change)="changeListener($event)" />
+        </div>
+        <div class="form-group col-12 col-md-8 form-row d-flex justify-content-around">
+          <div class="form-group col-12">
+            <label>
+              <h4>Nazwa</h4>
+              <input class="form-control" type="name" placeholder="Nazwa przepisu" formControlName="name" required>
+            </label>
+          </div>
+          <div class="form-group col-12">
+            <label>
+              <h4>Czas przygotowania</h4>
+              <input class="form-control" type="number" min="0" placeholder="Podaj czas w minutach"
+                formControlName="preparing_time" required>
+            </label>
+          </div>
+          <div class="form-group col-12">
+            <label for="Wybor">
+              <h4>Trudność</h4>
+              <select name="Wybor" autocomplete="off" class="form-control" formControlName="difficulty" required>
+                <!-- <option selected="selected" value="">Wybierz</option> -->
+                <option [selected]="value == null">Wybierz trudność</option>
+                <option selected value="1">1 - Banalne</option>
+                <option value="2">2 - Bardzo proste</option>
+                <option value="3">3 - Proste</option>
+                <option value="4">4 - Trudne</option>
+                <option value="5">5 - Skomplikowane</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <!-- Pod zdjęciem -->
+        <div class="form-group col-12">
+          <h4>Składniki:<span class="czcionka" id="do-prawej">Gramy:</span></h4>
+          <!-- ng-cont będzie -> jeśli są składniki to wyświetli -->
+          <ng-container>
+            <ul class="list-group">
+              <!-- button poniżej to czerwony minus, trzeba dodać metodę usuwającą dodany składnik -->
+              <li class="list-group-item py-0" *ngFor="let item of wybraneSkladniki">
+                <button class="btn mt-0" type="button" (click)="usunSkladnik(item)">
+                  <i class="fas fa-minus-circle fa-lg"></i>
+                  </button>
+                {{item.skladnik.name}}<span id="do-prawej"> {{item.quantity}} g</span>
+                <!-- {{item.weight}} -->
+              </li>
+            </ul>
+          </ng-container>
+          <!-- Tu jest plusik do dodania składników -->
+          <button class="btn mt-2" data-toggle="modal" data-target="#dodajModal" aria-haspopup="true"
+            aria-expanded="false" type="button"><i class="fas fa-plus-circle fa-lg"></i></button>
+        </div>
+        <div class="form-group col-12">
+          <label>
+            <h4>Przygotowanie:</h4>
+            <textarea class="form-control szer-textu" type="text" placeholder="Staraj się opisywać w punktach" formControlName="prepare" required></textarea>
+          </label>
+        </div>
+        <div>
+            <div class ="alert alert-danger w-100 text-center" *ngIf="message.contents != null && message.contents['message1'] != null" >{{message.contents['message1']}}</div>
+            <div class ="alert alert-success w-100 text-center" *ngIf="message.contents != null && message.contents['messagesucces'] != null" >{{message.contents['messagesucces']}}</div>
+          <button class="btn btn-success mt-3" type="submit" [disabled]="!this.form.valid || this.wybraneSkladniki == null || this.wybraneSkladniki.length ==0 || this.photo == null">Dodaj</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal fade" id="dodajModal" tabindex="-1" role="dialog" aria-labelledby="dodajModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="dodajModalLabel">Dodaj składnik</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form row card-body" [formGroup]="smallForm" (ngSubmit)="dodajskladnik()">
+            <div class="input-group mb-2">
+              <input class="form-control form-control-lg" type="search" placeholder="Szukaj składnika"
+                formControlName="szukaj">
+            </div>
+            <div class="col-12" id="wysw-skl">
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of (przefiltrowaneSkladniki != null ? przefiltrowaneSkladniki : skladniki)" (click)="WyborSkladnika(item)"
+                  [class.active]="item == skladnik"
+                  style="cursor: pointer;">
+                  {{item.name}}
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="col-5">
+              <label>Ilość sztuk:
+                <input class="form-control" placeholder="Ilość" type="number" min="0" formControlName="quantity">
+              </label>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+              <p class="my-0 pt-2">lub</p>
+            </div> -->
+            <div class="col-12">
+              <label>Gramatura:
+                <input class="form-control" placeholder="Gramy" type="number" min="0" formControlName="quantity">
+              </label>
+            </div>
+            <!-- <div class ="alert alert danger" *ngIf="message != null" >{{message}}</div> -->
+            <div>
+              <a href="/dodaj-skladnik" target="_blank">Dodaj nieistniejący składnik</a>
+            </div>
+            <div class="col-12 row pt-2">
+                <!-- <label> -->
+                <div class="col-3">
+                  <input type="submit" class="btn btn-success" placeholder="zapisz" value="Dodaj" style="margin-top: 12px;">
+                </div>
+                <div class="alert alert-danger col-9" *ngIf="message.contents != null && message.contents['message'] != null">{{message.contents['message']}}
+                </div>
+                <!-- </label> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.row{
+    min-height: 75px;
+}
+.border-current{
+    border-color: #f79862 !important;
+}
+.fa-chevron-right, .fa-chevron-left {
+    color: #f79862;
+    cursor: pointer;
+}
+
+.pointer-div {
+    cursor: pointer;
+}

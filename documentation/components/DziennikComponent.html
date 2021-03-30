@@ -1,0 +1,1136 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>keep-it-foody documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">keep-it-foody documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DziennikComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dziennik/dziennik.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/I18n.html" target="_self" >I18n</a></code>
+                            <code>{ provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n }</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dziennik</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dziennik.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dziennik.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dzien">dzien</a>
+                            </li>
+                            <li>
+                                <a href="#miesiac">miesiac</a>
+                            </li>
+                            <li>
+                                <a href="#model">model</a>
+                            </li>
+                            <li>
+                                <a href="#numerWidoku">numerWidoku</a>
+                            </li>
+                            <li>
+                                <a href="#obecnaDataFormat">obecnaDataFormat</a>
+                            </li>
+                            <li>
+                                <a href="#obecnyData">obecnyData</a>
+                            </li>
+                            <li>
+                                <a href="#rok">rok</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#trybKalendarza">trybKalendarza</a>
+                            </li>
+                            <li>
+                                <a href="#ZamienMiesiac">ZamienMiesiac</a>
+                            </li>
+                            <li>
+                                <a href="#ZmianaObecnejDaty">ZmianaObecnejDaty</a>
+                            </li>
+                            <li>
+                                <a href="#ZmienionoDzien">ZmienionoDzien</a>
+                            </li>
+                            <li>
+                                <a href="#ZmienWidok">ZmienWidok</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_i18n: <a href="../injectables/I18n.html">I18n</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/dziennik/dziennik.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_i18n</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/I18n.html" target="_self" >I18n</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trybKalendarza"></a>
+                    <span class="name">
+                        <b>
+                            trybKalendarza
+                        </b>
+                        <a href="#trybKalendarza"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trybKalendarza(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ZamienMiesiac"></a>
+                    <span class="name">
+                        <b>
+                            ZamienMiesiac
+                        </b>
+                        <a href="#ZamienMiesiac"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ZamienMiesiac(value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:80</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metoda zmiany miesiąca w kalendarzu</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;Styczeń&quot; | &quot;Luty&quot; | &quot;Marzec&quot; | &quot;Kwiecień&quot; | &quot;Maj&quot; | &quot;Czerwiec&quot; | &quot;Lipiec&quot; | &quot;Sierpień&quot; | &quot;Wrzesi...</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ZmianaObecnejDaty"></a>
+                    <span class="name">
+                        <b>
+                            ZmianaObecnejDaty
+                        </b>
+                        <a href="#ZmianaObecnejDaty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ZmianaObecnejDaty(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ZmienionoDzien"></a>
+                    <span class="name">
+                        <b>
+                            ZmienionoDzien
+                        </b>
+                        <a href="#ZmienionoDzien"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ZmienionoDzien(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ZmienWidok"></a>
+                    <span class="name">
+                        <b>
+                            ZmienWidok
+                        </b>
+                        <a href="#ZmienWidok"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ZmienWidok(numerWidoku)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/dziennik/dziennik.component.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>numerWidoku</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dzien"></a>
+                        <span class="name">
+                            <b>
+                            dzien</b>
+                            <a href="#dzien"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/dziennik/dziennik.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="miesiac"></a>
+                        <span class="name">
+                            <b>
+                            miesiac</b>
+                            <a href="#miesiac"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/dziennik/dziennik.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="model"></a>
+                        <span class="name">
+                            <b>
+                            model</b>
+                            <a href="#model"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/dziennik/dziennik.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numerWidoku"></a>
+                        <span class="name">
+                            <b>
+                            numerWidoku</b>
+                            <a href="#numerWidoku"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/dziennik/dziennik.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="obecnaDataFormat"></a>
+                        <span class="name">
+                            <b>
+                            obecnaDataFormat</b>
+                            <a href="#obecnaDataFormat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/dziennik/dziennik.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="obecnyData"></a>
+                        <span class="name">
+                            <b>
+                            obecnyData</b>
+                            <a href="#obecnyData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/dziennik/dziennik.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rok"></a>
+                        <span class="name">
+                            <b>
+                            rok</b>
+                            <a href="#rok"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/dziennik/dziennik.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Injectable } from &#x27;@angular/core&#x27;;
+import { NgbDatepickerI18n } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+
+const I18N_VALUES &#x3D; {
+  pl: {
+    weekdays: [&#x27;Po&#x27;, &#x27;Wt&#x27;, &#x27;Śr&#x27;, &#x27;Cz&#x27;, &#x27;Pi&#x27;, &#x27;So&#x27;, &#x27;Nie&#x27;],
+    months: [&#x27;Styczeń&#x27;, &#x27;Luty&#x27;, &#x27;Marzec&#x27;, &#x27;Kwiecień&#x27;, &#x27;Maj&#x27;, &#x27;Czerwiec&#x27;, &#x27;Lipiec&#x27;, &#x27;Sierpnień&#x27;, &#x27;Wrzesień&#x27;, &#x27;Październik&#x27;, &#x27;Listopad&#x27;, &#x27;Grudzień&#x27;],
+  },
+};
+
+// Define a service holding the language. You probably already have one if your app is i18ned.
+@Injectable()
+export class I18n {
+  
+  language &#x3D; &#x27;en&#x27;;
+}
+
+// Define custom service providing the months and weekdays translations
+@Injectable()
+export class CustomDatepickerI18n extends NgbDatepickerI18n {
+  getDayAriaLabel(date: import(&quot;@ng-bootstrap/ng-bootstrap&quot;).NgbDateStruct): string {
+    return &#x27;&#x27;;
+  }
+/**
+   * Kalkulator żywieniony, przygotowanie kalendarza z podziałem na miesiące,
+   * możliwość przejścia na konkretne daty, przez datapicker, przmieszczanie się 
+   * także guzikami poprzedni/kolejny
+   */
+  constructor(private _i18n: I18n) {
+    super();
+  }
+
+  getWeekdayShortName(weekday: number): string {
+    return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
+  }
+  getMonthShortName(month: number): string {
+    return I18N_VALUES[this._i18n.language].months[month - 1];
+  }
+  getMonthFullName(month: number): string {
+    return this.getMonthShortName(month);
+  }
+}
+
+
+@Component({
+  selector: &#x27;app-dziennik&#x27;,
+  templateUrl: &#x27;./dziennik.component.html&#x27;,
+  styleUrls: [&#x27;./dziennik.component.css&#x27;],
+  providers: [I18n, {provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n}] 
+})
+export class DziennikComponent implements OnInit {
+
+  model;
+  numerWidoku:number&#x3D;1;
+  dzien: string;
+  miesiac:string;
+  rok:number;
+
+  obecnaDataFormat: string;
+  obecnyData: Date &#x3D;null;
+
+  constructor(private _i18n: I18n) { 
+    this._i18n.language &#x3D; &#x27;pl&#x27;;
+  }
+
+  ngOnInit() {
+    this.obecnyData &#x3D; new Date();
+    this.ZmianaObecnejDaty({date: this.obecnyData, czyPokazacDzien: false});
+  }
+  
+  trybKalendarza(value: number){
+    this.numerWidoku&#x3D;value;
+    if (value &#x3D;&#x3D; 0) {
+      this.ZmianaObecnejDaty({date: this.obecnyData, czyPokazacDzien: true});
+    }
+  }
+/**
+   * Metoda zmiany miesiąca w kalendarzu
+   */
+  ZamienMiesiac(value){
+    switch(value){
+      case 0:
+      return &quot;Styczeń&quot;;
+      
+      case 1:
+      return &quot;Luty&quot;;
+
+      case 2:
+      return &quot;Marzec&quot;;
+
+      case 3:
+      return &quot;Kwiecień&quot;;
+
+      case 4:
+      return &quot;Maj&quot;;
+
+      case 5:
+      return &quot;Czerwiec&quot;;
+
+      case 6:
+      return &quot;Lipiec&quot;;
+      
+      case 7:
+      return &quot;Sierpień&quot;;
+
+      case 8:
+      return &quot;Wrzesień&quot;;
+
+      case 9:
+      return &quot;Październik&quot;;
+
+      case 10:
+      return &quot;Listopad&quot;;
+
+      case 11:
+      return &quot;Grudzień&quot;; 
+    }
+  }
+
+  ZmianaObecnejDaty(event) {
+    this.dzien &#x3D; event.czyPokazacDzien ? (&quot;0&quot; + event.date.getDate()).slice(-2) : &#x27;&#x27;;
+    this.miesiac &#x3D; this.ZamienMiesiac(event.date.getMonth());
+    this.rok &#x3D; event.date.getFullYear();
+    this.obecnaDataFormat &#x3D; (&quot;0&quot; + event.date.getDate()).slice(-2) + &#x27;/&#x27; + (&quot;0&quot; + event.date.getMonth()).slice(-2) + &#x27;/&#x27; + this.rok;
+    this.obecnyData &#x3D; event.date;
+    this.model &#x3D; {
+      &quot;year&quot;: this.rok,
+      &quot;month&quot;: this.miesiac,
+      &quot;day&quot;: this.dzien 
+    }
+  }
+
+  ZmienWidok(numerWidoku) {
+    this.numerWidoku &#x3D; numerWidoku;
+  }
+
+  ZmienionoDzien(event) {
+    this.ZmienWidok(0);
+    let eventModel &#x3D; {
+      czyPokazacDzien: true,
+      date: new Date(event.year + &#x27;-&#x27; + event.month + &#x27;-&#x27; + event.day)
+    }
+    this.ZmianaObecnejDaty(eventModel);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-zalogowany-navbar&gt;&lt;/app-zalogowany-navbar&gt;
+
+&lt;div class&#x3D;&quot;container mt-2&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot; data-target-input&#x3D;&quot;nearest&quot;&gt;
+      &lt;div class&#x3D;&quot;col-8 text-center&quot; &gt;
+        &lt;input class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;yyyy-mm-dd&quot;
+             name&#x3D;&quot;dp&quot; [(ngModel)]&#x3D;&quot;model&quot; ngbDatepicker #d&#x3D;&quot;ngbDatepicker&quot; hidden (ngModelChange)&#x3D;&quot;ZmienionoDzien($event)&quot;&gt;
+             &lt;h3&gt;&lt;i class&#x3D;&quot;fa fa-calendar fa-sm&quot; (click)&#x3D;&quot;d.toggle()&quot; &gt;&lt;/i&gt; {{dzien}} {{miesiac}} {{rok}}&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-4&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning mr-2&quot; (click)&#x3D;&quot;trybKalendarza(2)&quot;&gt;Miesiąc&lt;/button&gt;
+          &lt;!-- &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning mr-2&quot; (click)&#x3D;&quot;trybKalendarza(1)&quot;&gt;Tydzień&lt;/button&gt; --&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning mr-2&quot; (click)&#x3D;&quot;trybKalendarza(0)&quot;&gt;Dzień&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;app-dziennik-dzien *ngIf&#x3D;&quot;numerWidoku&#x3D;&#x3D;0&quot; [date]&#x3D;&quot;this.obecnyData&quot; (obecnaData)&#x3D;&quot;ZmianaObecnejDaty($event)&quot;&gt;&lt;/app-dziennik-dzien&gt;
+    &lt;app-dziennik-tydzien *ngIf&#x3D;&quot;numerWidoku&#x3D;&#x3D;1&quot; (obecnaData)&#x3D;&quot;ZmianaObecnejDaty($event)&quot; (zmienWidok)&#x3D;&quot;ZmienWidok($event)&quot;&gt;&lt;/app-dziennik-tydzien&gt;
+    &lt;app-dziennik-miesiac *ngIf&#x3D;&quot;numerWidoku&#x3D;&#x3D;2&quot; (obecnaData)&#x3D;&quot;ZmianaObecnejDaty($event)&quot; (zmienWidok)&#x3D;&quot;ZmienWidok($event)&quot;&gt;&lt;/app-dziennik-miesiac&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./dziennik.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.btn-warning, .btn-warning:hover{
+    color: #fff!important;
+    background-color: #f79862!important;
+    border-color: #f79862!important;
+}
+h3{
+    color: #f79862;
+}
+.container{
+  padding-top: 5%;
+}
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url(&#x27;../../assets/skladniki.jpg&#x27;) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-zalogowany-navbar></app-zalogowany-navbar><div class="container mt-2">    <div class="row" data-target-input="nearest">      <div class="col-8 text-center" >        <input class="form-control" placeholder="yyyy-mm-dd"             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" hidden (ngModelChange)="ZmienionoDzien($event)">             <h3><i class="fa fa-calendar fa-sm" (click)="d.toggle()" ></i> {{dzien}} {{miesiac}} {{rok}}</h3>      </div>      <div class="col-4">          <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(2)">Miesiąc</button>          <!-- <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(1)">Tydzień</button> -->          <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(0)">Dzień</button>      </div>    </div>    <app-dziennik-dzien *ngIf="numerWidoku==0" [date]="this.obecnyData" (obecnaData)="ZmianaObecnejDaty($event)"></app-dziennik-dzien>    <app-dziennik-tydzien *ngIf="numerWidoku==1" (obecnaData)="ZmianaObecnejDaty($event)" (zmienWidok)="ZmienWidok($event)"></app-dziennik-tydzien>    <app-dziennik-miesiac *ngIf="numerWidoku==2" (obecnaData)="ZmianaObecnejDaty($event)" (zmienWidok)="ZmienWidok($event)"></app-dziennik-miesiac></div></div>'
+    var COMPONENTS = [{'name': 'ActionUserComponent', 'selector': 'app-action-user'},{'name': 'AdminMainComponent', 'selector': 'app-admin-main'},{'name': 'AdminNavbarComponent', 'selector': 'app-admin-navbar'},{'name': 'AdminSpecialistComponent', 'selector': 'app-admin-specialist'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DietaDodajComponent', 'selector': 'app-dieta-dodaj'},{'name': 'DietaPremiumComponent', 'selector': 'app-dieta-premium'},{'name': 'DietaWyswietlanieComponent', 'selector': 'app-dieta-wyswietlanie'},{'name': 'DietyComponent', 'selector': 'app-diety'},{'name': 'DodajPosilekComponent', 'selector': 'app-dodaj-posilek'},{'name': 'DodajPrzepisComponent', 'selector': 'app-dodaj-przepis'},{'name': 'DodajSkladnikComponent', 'selector': 'app-dodaj-skladnik'},{'name': 'DziennikComponent', 'selector': 'app-dziennik'},{'name': 'DziennikDzienComponent', 'selector': 'app-dziennik-dzien'},{'name': 'DziennikMiesiacComponent', 'selector': 'app-dziennik-miesiac'},{'name': 'DziennikTydzienComponent', 'selector': 'app-dziennik-tydzien'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IngredientsComponent', 'selector': 'app-ingredients'},{'name': 'KalendarzComponent', 'selector': 'app-kalendarz'},{'name': 'LogowanieComponent', 'selector': 'app-logowanie'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfilComponent', 'selector': 'app-profil'},{'name': 'ProfilDanePodstawoweComponent', 'selector': 'app-profil-dane-podstawowe'},{'name': 'ProfilDaneSzczegoloweComponent', 'selector': 'app-profil-dane-szczegolowe'},{'name': 'ProfilPlatnosciComponent', 'selector': 'app-profil-platnosci'},{'name': 'PrzepisyComponent', 'selector': 'app-przepisy'},{'name': 'PrzepisyWyswietlanieComponent', 'selector': 'app-przepisy-wyswietlanie'},{'name': 'PrzypomnijHasloComponent', 'selector': 'app-przypomnij-haslo'},{'name': 'Pusta1Component', 'selector': 'app-pusta1'},{'name': 'Pusta2Component', 'selector': 'app-pusta2'},{'name': 'RejestracjaComponent', 'selector': 'app-rejestracja'},{'name': 'ShowIngredientsComponent', 'selector': 'app-show-ingredients'},{'name': 'ShowUsersComponent', 'selector': 'app-show-users'},{'name': 'SkladnikiComponent', 'selector': 'app-skladniki'},{'name': 'SkladnikiWyswietlanieComponent', 'selector': 'app-skladniki-wyswietlanie'},{'name': 'SliderComponent', 'selector': 'app-slider'},{'name': 'SpecjalisciComponent', 'selector': 'app-specjalisci'},{'name': 'StatisticComponent', 'selector': 'app-statistic'},{'name': 'StickyfooterComponent', 'selector': 'app-stickyfooter'},{'name': 'ToastMessagesComponent', 'selector': 'app-toast-messages'},{'name': 'WiadomosciComponent', 'selector': 'app-wiadomosci'},{'name': 'WspolpracaComponent', 'selector': 'app-wspolpraca'},{'name': 'ZalogowanyComponent', 'selector': 'app-zalogowany'},{'name': 'ZalogowanyNavbarComponent', 'selector': 'app-zalogowany-navbar'},{'name': 'ZmianaHaslaComponent', 'selector': 'app-zmiana-hasla'}];
+    var DIRECTIVES = [{'name': 'NgbdSortableHeader', 'selector': 'th[sortable]'}];
+    var ACTUAL_COMPONENT = {'name': 'DziennikComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DziennikComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

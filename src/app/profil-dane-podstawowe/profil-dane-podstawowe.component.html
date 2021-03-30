@@ -1,0 +1,65 @@
+<form class="form mt-2"  [formGroup]="form" (ngSubmit)="ZapisDanych()">
+    <div class="alert alert-warning" *ngIf="this.message.content!=null">{{message.content}}</div>
+    <div class="form-group">
+      <div class="col-12">
+        <label for="first_name">
+          <h4>Imię</h4>
+        </label>
+        <input type="text" class="form-control"  placeholder="imię" formControlName="name">
+      </div>
+    </div>
+    <!-- <div class="form-group"> -->
+
+      <!-- <div class="form-group"> -->
+        <div class="form-group">
+            <div class="col-12">
+              <label for="mobile">
+                <h4>Data urodzenia</h4>
+              </label>
+              <div class="input-group">
+                <input class="form-control" placeholder="podaj date" name="d2"  ngbDatepicker #d2="ngbDatepicker" formControlName="date_birth">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><i class="fas fa-calendar-alt"></i></button>
+                </div>
+              </div>
+              <!-- <input type="date" min="1900-01-01" max="{{today}}" class="form-control"  placeholder="podaj date" formControlName="date_birth"> -->
+            </div>
+          </div>
+        <!-- </div> -->
+      <div class="form-group">
+        <div class="col-12">
+          <label for="email">
+            <h4>Email</h4>
+          </label>
+          <input type="email" class="form-control" placeholder="you@email.com" formControlName="email" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-12">
+          <br>
+          <button class="btn btn-success kolor" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>
+            Zapisz</button>
+            <button class="btn btn-success kolor ml-2" type="button" data-toggle="modal" data-target="#haslo">
+              Zmień hasło</button>
+        </div>
+      </div>
+    <!-- </div> -->
+  </form>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="haslo" tabindex="-1" role="dialog" aria-labelledby="hasloTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Zmiana hasła</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-zmiana-hasla></app-zmiana-hasla>
+        </div>
+    </div>
+  </div>

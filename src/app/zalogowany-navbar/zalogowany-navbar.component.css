@@ -1,0 +1,40 @@
+/* #margin-nav{
+  margin-bottom: 3%;
+} */
+nav{
+  position: fixed;
+  z-index: 3;
+
+}
+/*Formatting text in navigation bar */
+.text-style {
+  color: #f79862;
+  font-size: 120%;
+  /* font-family: 'Comfortaa', cursive; */
+}
+
+.text-style-2 {
+  color: #f79862;
+  font-size: 100%;
+  /* font-family: 'Comfortaa', cursive; */
+}
+
+.alert {
+  position: absolute;
+  top: 10vh;
+  right: 10vh;
+  max-width: 300px;
+}
+.czcionka{
+  font-family: 'Comfortaa', cursive;
+}
+/* .pozycja{
+  position: relative !important;
+  top: 0px;
+  right: 100px !important;
+
+} */
+.kolor{
+  color: #f79862 !important;
+  background-color: transparent;
+}

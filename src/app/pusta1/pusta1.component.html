@@ -1,0 +1,37 @@
+<div class="tlo">
+    <!--Comfortaa font used in navigation bar-->
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!--Application KeepItFoody image-->
+    <a class="navbar-brand" href="#">
+        <img src="assets\app_logo.png" height="50" alt=""></a>
+    <!--Application KeepItFoody name-->
+    <a class="navbar-brand text-style" [routerLink]="['/home']">keep it foody</a>
+  </nav>
+    
+      <div class="my-container d-flex justify-content-center" aria-setsize="100%">
+        <div class="row d-flex align-items-start">
+          <div id="logreg-forms">
+            <form class="form-signin" [formGroup]="form" (ngSubmit)="logowanie()">
+              <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Konto aktywowane, możesz się zalogować</h1>
+              <div class="alert alert-danger" *ngIf="czyZalogowano == false">
+                <button aria-label="Close" class="close" type="button"><i class="far fa-times-circle"></i></button>
+                {{message}}
+              </div>
+              <input type="email" class="form-control" placeholder="Adres e-mail " formControlName="email">
+              <input type="password" class="form-control" placeholder="Hasło" formControlName="pass">
+      
+              <!-- <a class="btn btn-success btn-block" [routerLink]="['/zalogowany']"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a> -->
+              <button class="btn btn-success btn-block" type="submit"><i class="fas fa-user-plus"></i>
+                <i class="fas fa-sign-in-alt"></i> Zaloguj się
+              </button>
+            </form>
+      
+            <br>
+      
+          </div>  
+      </div>
+    
+<app-stickyfooter></app-stickyfooter>
+

@@ -1,0 +1,296 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>keep-it-foody documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">keep-it-foody documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content module">
+                   <div class="content-data">
+
+
+
+<ol class="breadcrumb">
+    <li>Modules</li>
+    <li>AppRoutingModule</li>
+</ol>
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li  class="active" >
+        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li >
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/app-routing.module.ts</code>
+        </p>
+
+
+
+
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
+import { HomeComponent } from &#x27;./home/home.component&#x27;;
+import { LogowanieComponent } from &#x27;./logowanie/logowanie.component&#x27;;
+import { RejestracjaComponent } from &#x27;./rejestracja/rejestracja.component&#x27;;
+import { ZalogowanyComponent } from &#x27;./zalogowany/zalogowany.component&#x27;;
+import { ProfilComponent } from &#x27;./profil/profil.component&#x27;;
+import { AuthGuardService, AnonymousGurdService, AdminGuardService } from &#x27;./_shared/Auth-Guard-Service&#x27;;
+import { PrzepisyComponent } from &#x27;./przepisy/przepisy.component&#x27;;
+import { DziennikComponent } from &#x27;./dziennik/dziennik.component&#x27;;
+import { SkladnikiComponent } from &#x27;./skladniki/skladniki.component&#x27;;
+import { PrzypomnijHasloComponent } from &#x27;./przypomnij-haslo/przypomnij-haslo.component&#x27;;
+import { DziennikDzienComponent } from &#x27;./dziennik-dzien/dziennik-dzien.component&#x27;;
+import { SkladnikiWyswietlanieComponent } from &#x27;./skladniki-wyswietlanie/skladniki-wyswietlanie.component&#x27;;
+import { PrzepisyWyswietlanieComponent } from &#x27;./przepisy-wyswietlanie/przepisy-wyswietlanie.component&#x27;;
+import { DodajSkladnikComponent } from &#x27;./dodaj-skladnik/dodaj-skladnik.component&#x27;;
+import { ZmianaHaslaComponent } from &#x27;./zmiana-hasla/zmiana-hasla.component&#x27;;
+import { DodajPrzepisComponent } from &#x27;./dodaj-przepis/dodaj-przepis.component&#x27;;
+import { WiadomosciComponent } from &#x27;./wiadomosci/wiadomosci.component&#x27;;
+import { DietyComponent } from &#x27;./diety/diety.component&#x27;;
+import { DodajPosilekComponent } from &#x27;./dodaj-posilek/dodaj-posilek.component&#x27;;
+import { KalendarzComponent } from &#x27;./kalendarz/kalendarz.component&#x27;;
+import { SpecjalisciComponent } from &#x27;./specjalisci/specjalisci.component&#x27;;
+import { DietaPremiumComponent } from &#x27;./dieta-premium/dieta-premium.component&#x27;;
+import { AdminMainComponent } from &#x27;./admin-main/admin-main.component&#x27;;
+import { StatisticComponent } from &#x27;./statistic/statistic.component&#x27;;
+import { ActionUserComponent } from &#x27;./action-user/action-user.component&#x27;;
+import { IngredientsComponent } from &#x27;./ingredients/ingredients.component&#x27;;
+import { DietaWyswietlanieComponent } from &#x27;./dieta-wyswietlanie/dieta-wyswietlanie.component&#x27;;
+import { DziennikTydzienComponent } from &#x27;./dziennik-tydzien/dziennik-tydzien.component&#x27;;
+import { Pusta1Component } from &#x27;./pusta1/pusta1.component&#x27;;
+import { Pusta2Component } from &#x27;./pusta2/pusta2.component&#x27;;
+import { DietaDodajComponent } from &#x27;./dieta-dodaj/dieta-dodaj.component&#x27;;
+import { WspolpracaComponent } from &#x27;./wspolpraca/wspolpraca.component&#x27;;
+import { AdminSpecialistComponent } from &#x27;./admin-specialist/admin-specialist.component&#x27;;
+
+const routes: Routes &#x3D; [
+  {
+    path: &#x27;home&#x27;, component: HomeComponent, canActivate: [AnonymousGurdService]
+  },
+  {
+    path: &#x27;logowanie&#x27;, component: LogowanieComponent,  canActivate: [AnonymousGurdService]
+  },
+  {
+    path: &#x27;rejestracja&#x27;, component: RejestracjaComponent, canActivate: [AnonymousGurdService]
+  },
+  {
+    path: &#x27;zalogowany&#x27;, component: ZalogowanyComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;profil&#x27;, component: ProfilComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;przepisy&#x27;, component: PrzepisyComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dziennik&#x27;, component: DziennikComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dziennik-tydzien&#x27;, component: DziennikTydzienComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;Skladniki&#x27;, component: SkladnikiComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;profil&#x27;, component: ProfilComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;przypomnijHaslo&#x27;, component: PrzypomnijHasloComponent,  canActivate: [AnonymousGurdService]
+  },
+  {
+    path: &#x27;pusta1&#x27;, component: Pusta1Component,  canActivate: [AnonymousGurdService]
+  },
+  {
+    path: &#x27;pusta2&#x27;, component: Pusta2Component, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;admin-specjalist&#x27;, component: AdminSpecialistComponent, canActivate: [AdminGuardService]
+  },
+  // {
+  //   path: &#x27;dziennikDzien/:poZalogowaniu&#x27;, component: DziennikDzienComponent, canActivate: [AuthGuardService]
+  // },
+  {
+    path: &#x27;zmiana-hasla&#x27;, component: ZmianaHaslaComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;skladniki-wyswietlanie&#x27;, component: SkladnikiWyswietlanieComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;przepisy-wyswietlanie&#x27;, component: PrzepisyWyswietlanieComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dodaj-przepis&#x27;, component: DodajPrzepisComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dodaj-skladnik&#x27;, component: DodajSkladnikComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;wiadomosci&#x27;, component: WiadomosciComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dodaj-posilek&#x27;, component: DodajPosilekComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;kalendarz/:date&#x27;, component: KalendarzComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;kalendarz&#x27;, component: KalendarzComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;diety&#x27;, component: DietyComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;specjalisci&#x27;, component: SpecjalisciComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dieta-premium&#x27;, component: DietaPremiumComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dieta-wyswietlanie&#x27;, component: DietaWyswietlanieComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: &#x27;dieta-dodaj&#x27;, component: DietaDodajComponent, canActivate: [AuthGuardService]
+  },
+   {
+     path: &#x27;wspolpraca&#x27;, component: WspolpracaComponent, canActivate: [AuthGuardService]
+   },
+  {
+    path: &#x27;admin&#x27;,
+    component: AdminMainComponent,
+    canActivate: [AdminGuardService]
+  },
+  {
+    path: &#x27;admin-statystyki&#x27;,
+    component: StatisticComponent,
+    canActivate: [AdminGuardService]
+  },
+  {
+    path: &#x27;admin-uzytkownicy&#x27;,
+    component: ActionUserComponent,
+    canActivate: [AdminGuardService]
+  },
+  {
+    path: &#x27;admin-skladniki&#x27;,
+    component: IngredientsComponent,
+    canActivate: [AdminGuardService]
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

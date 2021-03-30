@@ -1,0 +1,99 @@
+﻿<app-admin-navbar></app-admin-navbar>
+
+<!-- <div id="dash" class="container-fluid text-center">
+    <h2>Panel Administratora</h2>
+    <br>
+    <div class="row">
+        <a [routerLink]="['/admin-uzytkownicy']">
+            <div class="col">
+                <i class="fas fa-user"></i>
+                <h4>Administracja użytkownikami</h4>
+            </div>
+        </a>
+        <a [routerLink]="['/admin-specjalist']">
+            <div class="col">
+                <i class="fas fa-user"></i>
+                <h4>Administracja specialistami</h4>
+            </div>
+        </a>
+
+    </div>
+    <div class="row">
+        <a [routerLink]="['/admin-statystyki']">
+            <div class="col">
+                <i class="fas fa-copy"></i>
+                <h4>Statystyki bazy danych</h4>
+            </div>
+        </a>
+        <a [routerLink]="['/admin-skladniki']">
+            <div class="col">
+                <i class="fas fa-apple-alt"></i>
+                <h4>Zarządzanie składnikami</h4>
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <a (click)="RedirectToKalendarz()">
+            <div class="col">
+                <i class="far fa-user-circle"></i>
+                <h4>Panel użytkownika</h4>
+            </div>
+        </a>
+    </div>
+    <br>
+</div> -->
+
+<div class="card-group container py-5 bug">
+  <div class="col-6 px-0">
+    <div class="card" style="cursor: pointer;">
+      <a class="text-center pt-4" (click)="RedirectToKalendarz()">
+        <i class="far fa-user-circle"></i>
+        <div class="card-body">
+          <h5 class="card-title">Panel użytkownika</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-6 px-0">
+    <div class="card">
+      <a class="text-center pt-4" [routerLink]="['/admin-uzytkownicy']">
+        <i class="fas fa-user"></i>
+        <div class="card-body">
+          <h5 class="card-title">Administracja użytkownikami</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-6 px-0">
+    <div class="card">
+      <a class="text-center pt-4" [routerLink]="['/admin-specjalist']">
+        <i class="fas fa-user"></i>
+        <div class="card-body">
+          <h5 class="card-title">Administracja specialistami</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- <div class="col-6">
+    <div class="card">
+      <a class="text-center pt-4" [routerLink]="['/admin-statystyki']">
+        <i class="fas fa-copy"></i>
+        <div class="card-body">
+          <h5 class="card-title">Statystyki bazy danych</h5>
+        </div>
+      </a>
+    </div>
+  </div> -->
+  <div class="col-6 px-0">
+    <div class="card">
+      <a class="text-center pt-4" [routerLink]="['/admin-skladniki']">
+        <i class="fas fa-apple-alt"></i>
+        <div class="card-body">
+          <h5 class="card-title">Zarządzanie składnikami</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<app-statistic></app-statistic>

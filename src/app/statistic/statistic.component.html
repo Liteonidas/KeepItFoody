@@ -1,0 +1,101 @@
+﻿<!-- <app-admin-navbar></app-admin-navbar> -->
+
+<div class="container bug">
+  <!-- <h1>Statystyki</h1>
+  <h3>Składniki</h3> -->
+  <!-- <table class="table"> -->
+    <table class="table table-striped table-bordered" id="bor">
+      <!-- table-sm -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Składniki</th>
+          <th>Przepisy</th>
+          <th>Specjaliści</th>
+          <th>Użytkownicy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aktualnie w bazie</td>
+          <td>{{statystyki[2].value}}</td>
+          <td>{{statystyki[1].value}}</td>
+          <td>{{statystyki[0].value}}</td>
+          <td>{{statystyki[3].value}}</td>
+        </tr>
+        <tr>
+          <td>Aktywni</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{statystyki[4].value}}</td>
+        </tr>
+        <tr>
+          <td>Dezaktywowanych</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{statystyki[5].value}}</td>
+        </tr>
+      </tbody>
+      <!-- <tbody>
+        <tr>
+          <th scope="row">Aktualnie w bazie</th>
+          <td>{{statystyki[2].value}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Przepisy</h3>
+        <table class="table">
+
+            <tbody>
+              <tr>
+                <th scope="row">Aktualnie w bazie</th>
+                <td>{{statystyki[1].value}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Diety</h3>
+    <table class="table">
+
+        <tbody>
+          <tr>
+            <th scope="row">Aktualnie w bazie</th>
+            <td>{{statystyki[0].value}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Specjaliści</h3>
+      <table class="table">
+
+          <tbody>
+            <tr>
+              <th scope="row">Aktualnie w bazie</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Aktywni</th>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Użytkownicy</h3>
+    <table class="table">
+
+      <tbody>
+        <tr>
+          <th scope="row">Aktualnie w bazie</th>
+          <td>{{statystyki[3].value}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Aktywni</th>
+          <td>{{statystyki[4].value}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Dezaktywowanych</th>
+          <td>{{statystyki[5].value}}</td>
+        </tr>
+      </tbody> -->
+    </table>
+    <button class="btn btn-primary" (click)="pobierzStatystyki()"> Odśwież</button>
+</div>

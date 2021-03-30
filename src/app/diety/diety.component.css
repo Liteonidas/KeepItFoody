@@ -1,0 +1,42 @@
+/* #padding-top{
+  padding-top: 3%;
+  width: 100%;
+} */
+.tlo{
+  /* background-color: white; */
+  /* -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+  filter: drop-shadow(8px 8px 10px gray); */
+  /* padding-top: 100px; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/katherine-chase-518230-unsplash.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+}
+/* .container{
+  margin-top: 100px;
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+  filter: drop-shadow(8px 8px 10px gray);
+} */
+#ramka{
+  border-style: solid;
+  border-color: #f79862;
+  border-width: 5px;
+  padding: 10px;
+  background-color: #ffe5b4;
+  border-radius: 10px;
+}
+
+#kolor{
+  background-color: #f79862;
+}
+.container{
+  background-color: transparent;
+}

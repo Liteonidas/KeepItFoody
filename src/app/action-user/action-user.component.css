@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+.row{
+    width: 45%;
+    padding-top: 50px;
+}
+
+.btn {
+    background-color: antiquewhite;
+}
+.btn:active {
+    background-color: #f4511e;
+}
+.buts {
+    display: inline-block;
+    float: right;
+}
+.container {
+    padding-top: 50px;
+}
+.bug{
+  border: none;
+}

@@ -1,0 +1,19 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+
+<div class="container mt-2">
+    <div class="row" data-target-input="nearest">
+      <div class="col-8 text-center" >
+        <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" hidden (ngModelChange)="ZmienionoDzien($event)">
+             <h3><i class="fa fa-calendar fa-sm" (click)="d.toggle()" ></i> {{dzien}} {{miesiac}} {{rok}}</h3>
+      </div>
+      <div class="col-4">
+          <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(2)">Miesiąc</button>
+          <!-- <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(1)">Tydzień</button> -->
+          <button type="button" class="btn btn-warning mr-2" (click)="trybKalendarza(0)">Dzień</button>
+      </div>
+    </div>
+    <app-dziennik-dzien *ngIf="numerWidoku==0" [date]="this.obecnyData" (obecnaData)="ZmianaObecnejDaty($event)"></app-dziennik-dzien>
+    <app-dziennik-tydzien *ngIf="numerWidoku==1" (obecnaData)="ZmianaObecnejDaty($event)" (zmienWidok)="ZmienWidok($event)"></app-dziennik-tydzien>
+    <app-dziennik-miesiac *ngIf="numerWidoku==2" (obecnaData)="ZmianaObecnejDaty($event)" (zmienWidok)="ZmienWidok($event)"></app-dziennik-miesiac>
+</div>

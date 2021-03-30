@@ -1,0 +1,39 @@
+<div class="row text-center mt-4">
+    <div class="col"></div>
+    <div class="col border pointer-div" *ngFor="let dzien of pierwszyTydzien" [class.border-current]="dzien.DzienMiesiaca == dateFormat" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)" >   
+      {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row text-center">
+    <div class="col"></div>
+    <div class="col border pointer-div" *ngFor="let dzien of drugiTydzien" [class.border-current]="dzien.DzienMiesiaca == dateFormat" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)">  
+      {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row text-center">
+    <div class="col">
+      <i  class="fas fa-chevron-left fa-3x" (click)="PoprzedniMiesiac()"></i>
+    </div>
+    <div class="col border pointer-div" *ngFor="let dzien of trzeciTydzien" [class.border-current]="dzien.DzienMiesiaca == dateFormat" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)"> 
+      {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+    </div>
+    <div class="col">
+      <i class="fas fa-chevron-right fa-3x" (click)="NastepnyMiesiac()"></i>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col"></div>
+    <div class="col border pointer-div" *ngFor="let dzien of czwartyTydzien" [class.border-current]="dzien.DzienMiesiaca == dateFormat" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)"> 
+      {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row text-center">
+    <div class="col"></div>
+    <div class="col border pointer-div" *ngFor="let dzien of piatyTydzien" [class.border-current]="dzien.DzienMiesiaca == dateFormat" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)"> 
+      {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+    </div>
+    <div class="col"></div>
+</div>

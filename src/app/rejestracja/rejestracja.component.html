@@ -1,0 +1,103 @@
+
+
+<!--Comfortaa font used in navigation bar-->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+<!--Awesome font used in social buttons-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--Application KeepItFoody image-->
+  <a class="navbar-brand" href="#">
+      <img src="assets\logo.png" height="50" alt=""></a>
+  <!--Application KeepItFoody name-->
+  <a class="navbar-brand text-style" [routerLink]="['/home']">keep it foody</a>
+</nav>
+
+<div class="my-container d-flex justify-content-center" aria-setsize="100%">
+  <div class="row d-flex align-items-start">
+    <div id="logreg-forms">
+      <form class="main-form needs-validation" [formGroup]="form" (ngSubmit)="rejestracja()" novalidate>
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Rejestracja</h1>
+        <div class="social-login">
+          <button class="btn facebook-btn social-btn" type="button" (click)="logowaniePrzezSocialMedia(true)"><span><i
+                class="fab fa-facebook-f"></i> Facebook</span> </button>
+          <button class="btn google-btn social-btn" type="button" (click)="logowaniePrzezSocialMedia(false)"><span><i
+                class="fab fa-google"></i> Google</span> </button>
+        </div>
+
+        <p style="text-align:center">lub</p>
+        <!--Name bracket-->
+        <div class="form-group">
+          <label for="user-name">Imię</label>
+          <input type="text" id="user-name" class="form-control" placeholder="Imię" formControlName="name" required>
+          <div class="invalid-feedback">Podaj imię.</div>
+        </div>
+
+        <!--Email bracket-->
+        <div class="form-group">
+          <label for="user-email">Adres e-mail</label>
+          <input type="email" id="user-email" class="form-control ng-invalid" placeholder="Adres e-mail" formControlName="email" required>
+          <div class="alert alert-danger mb-0" *ngIf="bladWalidacjiEmail == true">
+              Adres e-mail zajęty!
+            </div>
+        </div>
+
+        <!--Password bracket-->
+        <div class="form-group">
+          <label for="user-pass">Hasło</label>
+          <div class="input-group">
+            <input type="password" id="user-pass" class="form-control ng-valid.required"required minlength="5" placeholder="Hasło" formControlName="pass" aria-describedby="passwordHelp" >
+            <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fa fa-eye" (mouseover)="show('user-pass')" (mouseleave)="hide('user-pass')"></i>
+                </span>
+            </div>
+            <div class="alert alert-danger mb-0" *ngIf="form.controls.pass.errors?.strong && form.controls.pass.value != '' && form.controls.pass.value != null ">
+              Minimalnie 5 znaków, duża i mała litera oraz cyfra.</div>
+          </div>
+        </div>
+
+        <!-- Repeat Password bracket-->
+        <div class="form-group">
+          <label for="user-repeatpass">Powtórz Hasło</label>
+          <div class="input-group">
+            <input type="password" id="user-repeatpass" class="form-control " placeholder="Powtórz Hasło" formControlName="pass2" required>
+            <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fa fa-eye" (mouseover)="show('user-repeatpass')" (mouseleave)="hide('user-repeatpass')"></i>
+                </span>
+            </div>
+            <div class="invalid-feedback">Hasła nie pasują do siebie</div>
+          </div>
+        </div>
+
+
+          <div class="form-check text-center">
+            <input type="checkbox" class="form-check-input mt-2" id="exampleCheck1" (click)="zmienAktywnosc()">
+            <label class="form-check-label" for="exampleCheck1"><a class="pt-0" href="assets/regulamin.pdf" target="_blank">Akceptuje regulamin</a></label>
+          </div>
+
+        <button class="btn btn-primary btn-block " type="submit"[disabled]="!czyAktywny || !form.valid"><i class="fas fa-user-plus"></i>Dołącz</button>
+        <a [routerLink]="['/home']" id="cancel_signup"><i class="fas fa-angle-left"></i> powrót</a>
+
+      <br>
+      </form>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-header button-format">
+        <h4 class="modal-title">Poprawna rejestracja</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Aby dokończyć rejestracje kliknij w link aktywacyjny wysłany na Twój adres e-mail.</p>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Zamknij</button>
+      </div>-->
+    </ng-template>
+  </div>
+</div>
+

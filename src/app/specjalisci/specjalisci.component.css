@@ -1,0 +1,151 @@
+.container{
+  padding-top: 100px;
+}
+#dolocz{
+  position: fixed;
+  left: 0;
+  top: 20%;
+  width: 8em;
+  /* margin-top: -2.5em; */
+  z-index: 5;
+  /* border-style: dashed; */
+  /* border-color: brown; */
+  /* border-width: 5px; */
+  /* width: 140px; */
+  /* background-color: yellow; */
+}
+/* .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  box-shadow: none;
+
+} */
+
+#ramka button:hover{
+  box-shadow: none;
+
+}
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/specjalist.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 100px;
+  overflow: auto;
+}
+
+.box {
+  background: red;
+  border-radius: 0px 4px 4px 0px;
+  left: -304px;
+  padding: 4px 4px 4px 0px;
+  position: fixed;
+  top: 250px;  /* Odległość od górnej krawędzi schowanego okna */
+  transition: transform 0.4s;
+  width: 300px;
+}
+
+.box:hover {
+  transform: translateX(304px);
+}
+
+.box .box__content {
+  background: #fff;
+  min-height: 150px; /* Minimalna wysokość schowanego okna */
+  padding: 10px;
+  position: relative;
+}
+
+.box .box__title {
+  background: #fff;
+  border: solid red;
+  border-radius: 0px 0px 4px 4px;
+  border-width: 0px 4px 4px;
+  cursor: default;
+  font-size: 18px;
+  height: 74px; /* Wysokość tytułu */
+  line-height: 25px;
+  position: absolute;
+  right: -90px; /* Wysunięcie prawo-lewo tytułu */
+  text-align: center;
+  top: 40px; /* Przesunięcie tytułu względem okna | góra dół, bo obrócony */
+  transform: rotate(-90deg);
+  width: 106px;
+  padding-top: 8px;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+#na-gorze{
+  z-index: 99999 !important;
+}
+.bac{
+  background:rgba(255,255,255,0.7);
+}
+.prz{
+  background: transparent;
+}
+
+.kolorspec{
+  /* background-color: rgba(255,255,255,0.5); */
+  background-color: transparent;
+}
+
+.kraw{
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+
+#szukaj-speca{
+  background-color: #f79862;
+}
+
+.kraw-szukaj{
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+.przycisk{
+  background-color: #f1f1f1;
+  color: #f79862;
+  font-size: 16px;
+  padding: 10px 20px;
+  /* border: 5rem; */
+  border-color: #f79862;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.przycisk:hover {
+  background-color: #f79862;
+  color: black;
+}
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}

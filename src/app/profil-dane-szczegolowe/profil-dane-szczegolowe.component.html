@@ -1,0 +1,79 @@
+<form class="form mt-2" [formGroup]="form" (ngSubmit)="ZapisDanych()">
+  <div class="alert alert-warning" *ngIf="czyWszystkieDaneWypelnione">Nie wszystkie dane są wypełnione</div>
+  <div class="alert alert-warning" *ngIf="this.message.content !=null">{{message.content}}</div>
+  <div class="form-group">
+      <div class="col-12">
+        <label for="height">
+          <h4>Wzrost</h4>
+        </label>
+        <input type="number" min="0" class="form-control" placeholder="Podaj wzrost w cm" formControlName="height">
+        <div class="alert alert-danger" *ngIf="heightError">
+            <button aria-label="Close" class="close" type="button" (click)="heightError = false"><i class="far fa-times-circle"></i></button>
+            Czy aby na pewno podałeś prawidłowy wzrost?
+          </div>
+      </div>
+  </div>
+
+    <div class="form-group">
+
+      <div class="form-group">
+        <div class="col-12">
+          <label for="mobile">
+            <h4>Waga</h4>
+          </label>
+          <input type="number" min="0" class="form-control"  placeholder="Podaj wagę w kg" formControlName="weight">
+          <div class="alert alert-danger" *ngIf="weightError">
+              <button aria-label="Close" class="close" type="button" (click)="weightError = false"><i class="far fa-times-circle"></i></button>
+              Czy aby na pewno podałeś prawidłową wagę?
+        </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-12">
+          <label for="mobile">
+            <h4>Dzienne zapotrzebowanie kaloryczne</h4>
+          </label>
+          <input type="number" min="0" class="form-control" placeholder=" bmr" formControlName="bmr">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <div class="col-12">
+              <label for="mobile">
+                <h4>Płeć</h4>
+              </label>
+              <br>
+              <select class="form-control" (change)="sexWasChange($event.target.value)">
+                <br>
+                  <option *ngFor="let option of options" value="{{option.key}}">{{option.name}}</option>
+                  <option value="{{selectedSex.key}}" selected>{{selectedSex.name}}</option>
+                </select>
+            </div>
+          </div>
+        </div>
+      <div class="form-group">
+        <div class="col-12">
+          <label for="activity">
+            <h4>Tryb życia</h4>
+          </label>
+          <select name="activity" class="form-control" (change)="lifestyleWasChange($event.target.value)">
+                <option [selected]="selectedLifestyle == 0" *ngIf="selectedLifestyle == 0">Nie podano</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[0] : Mwspolczynniki[0]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[0] : Mwspolczynniki[0])">Przykuty do łóżka</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[1] : Mwspolczynniki[1]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[1] : Mwspolczynniki[1])">Bardzo lekka aktywność</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[2] : Mwspolczynniki[2]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[2] : Mwspolczynniki[2])">Lekka aktywność</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[3] : Mwspolczynniki[3]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[3] : Mwspolczynniki[3])">Średnia aktywność</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[4] : Mwspolczynniki[4]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[4] : Mwspolczynniki[4])">Duża aktywność</option>
+                <option value="{{selectedSex.key == 'K' ? Kwspolczynniki[5] : Mwspolczynniki[5]}}" [selected]="selectedLifestyle == (selectedSex.key == 'K' ? Kwspolczynniki[5] : Mwspolczynniki[5])" >Bardzo duża aktywność </option>
+              </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-12">
+          <button class="btn btn-success" type="submit" id="kolor"><i class="glyphicon glyphicon-ok-sign"></i>
+            Zapisz
+          </button>
+        </div>
+      </div>
+    </div>
+</form>
+

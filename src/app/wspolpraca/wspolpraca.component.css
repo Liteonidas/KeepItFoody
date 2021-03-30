@@ -1,0 +1,56 @@
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/specjalist.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 100px;
+  overflow: auto;
+}
+.container{
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background:rgba(255,255,255,0.5);
+  /* background-color:#ffe8ab; */
+  /* max-width: 40%; */
+  }
+.przycisk{
+  background-color: #f1f1f1;
+  color: #f79862;
+  font-size: 16px;
+  padding: 10px 20px;
+  /* border: 5rem; */
+  border-color: #f79862;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.przycisk:hover {
+  background-color: #f79862;
+  color: black;
+}
+.po-prawej{
+  float: right;
+}
+.czcionka{
+  font-family: 'Comfortaa', cursive;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+border-left: 5px solid #a94442; /* red */
+}
+/* input{
+  box-shadow: none;
+} */

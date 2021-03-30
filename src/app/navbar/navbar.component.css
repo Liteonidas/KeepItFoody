@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+.btn-outline-success, .btn-outline-success:active:focus {
+    color: white;
+    border-color: #ed3338;
+    background-color: #f79862;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-outline-success:hover {
+    color: white;
+    background-color: #ed3338;
+}
+
+.bg-light {
+    background-color:#f99639!important;
+    font-family: 'Comfortaa', cursive;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*Formatting text in navigation bar */
+.text-style {
+    color: white;
+    border-color: #ed3338;
+    font-size: 200%;
+    text-shadow: 1px 1px 2px black;
+}

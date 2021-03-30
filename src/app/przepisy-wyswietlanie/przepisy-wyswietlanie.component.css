@@ -1,0 +1,74 @@
+.list-group-item{
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+/* Poniżej, skraca tekst, nie pozwala wyjść poza kontener, oraz nie pozwala na zawijanie tekstu */
+.card-text{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* .card-img{
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+ */
+/* .card-img{
+  height: auto;
+} */
+
+/* .card{
+  height: 363px;
+  width:  452px;
+
+}
+.card-header{
+  width: 450px;
+  height: 80px;
+} */
+.card-text{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#do-prawej{
+  float: right;
+  white-space: pre;
+  /* position: absolute; right: 2px; */
+}
+.card-header{
+  height: auto;
+}
+.wypelnienie{
+  height: 100%;
+}
+
+/* #przepis{
+  height: 300px;
+} */
+
+.card-img {
+  width: 200px;
+  height: 180px!important;
+  object-fit: cover;
+}
+
+#proporcje{
+  width: 400px;
+  height: 266px;
+}
+
+#marg{
+  margin-left: 0px;
+}
+
+.zdjecie-przepisu {
+  width: 320px;
+  height: 240px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+}

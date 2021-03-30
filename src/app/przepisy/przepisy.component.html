@@ -1,0 +1,58 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+<div class="tlo">
+  <!--tu jest wyszukiwanie-->
+  <div class="row my-margin d-flex justify-content-center" style="padding-top: 100px;">
+    <!-- <div class="col-2 col-sm-2 col-xl-2 px-0"></div> -->
+    <div class="col-8 col-sm-8 col-xl-8 px-0">
+      <div class="card card-sm border-0" style="background-color:transparent">
+        <!-- border-0 krawedz karty opcjonalnie do zmiany -->
+        <form style="background-color:transparent" class="form row card-body no-gutters px-0" [formGroup]="form" (ngSubmit)="wyszukajPrzep()">
+          <!-- Tutaj skonczyles!!!!!!!!! -->
+          <div class="input-group col-10 pt-2 pl-3">
+
+            <input class="form-control form-control-lg" type="search" placeholder="Szukaj przepisu"
+              formControlName="szukaj" id="szukaj-radius">
+
+          </div>
+          <!--end of col-->
+          <div class="col-2 pt-2">
+            <button class="btn btn-lg kraw" id="szukaj-przepis" type="submit">
+              <i class="fas fa-search fa-sm"></i>
+              <i><strong id="styl-szukaj-przepis"> Szukaj</strong></i>
+            </button>
+          </div>
+          <!--end of col-->
+          <!-- <div class="card-body col-12 col-lg-3 pt-2 pl-2" id="kat-css">
+            <label for="kategorie">
+              <select class="form-control-lg" id="kategorie-przep" name="kategorie">
+                 Trzeba podpiąć kategorie, (click) nie działą - Pati -->
+                <!-- <option value="First Choice"><button class="button" (click)="czysc($event)">Wszystko</button></option> -->
+                <!-- <option value="Second Choice"><button class="button" (click)="bakalie($event)">Bakalie i
+                    nasiona</button></option>
+                <option (click)="cukier($event)" value="Third Choice">Cukier i przetwory cukiernicze</option>
+                <option (click)="mieso($event)" value="Fourth Choice">Mięso i przetwory mięsne</option>
+                <option (click)="nabial($event)" value="Fourth Choice">Nabiał i jaja</option>
+                <option (click)="napoje($event)" value="Fourth Choice">Napoje</option>
+                <option (click)="owoce($event)" value="Fourth Choice">Owoce i przetwory owocowe</option>
+                <option (click)="produkty($event)" value="Fourth Choice">Produkty zbożowe</option>
+                <option (click)="ryby($event)" value="Fourth Choice">Ryby i przetwory rybne</option>
+                <option (click)="tluszcze($event)" value="Fourth Choice">Tłuszcze</option>
+                <option (click)="warzywa($event)" value="Fourth Choice">Warzywa i przetwory warzywne</option>
+                <option (click)="pozostale($event)" value="Fourth Choice">Pozostałe</option>
+              </select> -->
+            <!-- </label> -->
+          <!-- </div> -->
+        </form>
+      </div>
+    </div>
+    <!--end of col-->
+  </div>
+  <!-- <div class="col-2 col-sm-2 col-xl-2"></div> -->
+
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 pl-3">
+      <app-przepisy-wyswietlanie [szukajp]="this.szukaj"></app-przepisy-wyswietlanie>
+    </div>
+  </div>
+</div>

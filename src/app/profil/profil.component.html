@@ -1,0 +1,54 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+
+<div class="tlo pt-0">
+  <div class="container bootstrap snippet my-0">
+    <div class="row mt-3">
+      <div class="col-12 mt-2">
+        <div class="text-center">
+          <label class="photo-container">
+            <img placeholder="dodaj zdjęcie" src="{{this.sciezkaZdjecia}}" class="avatar img-circle img-thumbnail"
+              alt="avatar" title="Dodaj zdjęcie" style="width:200px; height:200px">
+            <div class="middle">
+              <label class="btn btn-success kolor" for="file-input">
+                Zmień zdjęcie
+                <input class="d-none" id="file-input" type="file" (change)="ZdjecieZostaloZmienione($event)" />
+              </label>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="col-12 text-center pb-2">
+        <h1 *ngIf="model.name != null && model.name != undefined">Witaj, {{this.model.name}}</h1>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <div class="col-9 krawedzie">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Dane podstawowe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="szczegoly-tab" data-toggle="tab" href="#szczegoly" role="tab"
+                aria-controls="szczegoly" aria-selected="false">Dane szczegółowe</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <app-profil-dane-podstawowe [model]="this.model" (przeliczBMR)="PrzeliczBMR($event)">
+              </app-profil-dane-podstawowe>
+            </div>
+            <div class="tab-pane fade" id="szczegoly" role="tabpanel" aria-labelledby="szczegoly-tab">
+              <app-profil-dane-szczegolowe [model]="this.model" [przeliczycBMR]="this.przeliczycBMR">
+              </app-profil-dane-szczegolowe>
+            </div>
+            <div class="tab-pane fade" id="platnosci" role="tabpanel" aria-labelledby="platnosci-tab">
+              <app-profil-platnosci></app-profil-platnosci>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" *ngIf="this.message.content != null">{{message.content}}</div>
+</div>

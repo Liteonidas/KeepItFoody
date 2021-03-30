@@ -1,0 +1,58 @@
+<app-zalogowany-navbar></app-zalogowany-navbar>
+
+<div class="tlo">
+  <div class="container">
+    <!-- <div class="container-styl"> -->
+    <form [formGroup]="form" (ngSubmit)="Dodaj()">
+        <div class="alert alert-warning" *ngIf="message.content != null">{{message.content}}</div>
+      <div class="form-row form-group mb-0">
+        <div class="col-12 d-flex justify-content-center">
+          <h3 class="czcionka">Formularz dla specjalisty</h3>
+        </div>
+          <div class="form-group col-4 d-flex justify-content-around">
+                <label for="file-input" class="d-flex justify-content-center">
+                <img style="width: 300px; height: 300px; border-radius: 5px;"
+                  src="{{wysw == null ? '../../assets/addthumbs_o_foto.jpg' : wysw}}"
+                  class="align-self-center img-fluid" alt="...">
+                </label>
+                <input class="d-none" id="file-input" type="file" (change)="changeListener($event)"/>
+          </div>
+          <div class="col-8">
+            <div class="form-group col-12" hintLabel="">
+              <input class="form-control" placeholder="Imię" formControlName="name" required>
+              <!-- <mat-error *ngIf="form.controls['firstname'].errors?.required">Imię jest niezbędne!</mat-error> -->
+            </div>
+
+            <div class="form-group col-12" hintLabel="">
+              <input class="form-control" placeholder="Nazwisko" formControlName="surname" required>
+              <!-- <mat-error *ngIf="form.controls['lastname'].errors?.required">Nazwisko jest niezbędne!</mat-error> -->
+            </div>
+
+            <div class="form-group col-12" hintLabel="">
+              <input class="form-control" placeholder="E-mail" formControlName="email" required>
+            </div>
+
+            <div class="form-group col-12">
+              <select class="form-control" placeholder="Zawód" formControlName="profession" required>
+                <option [selected]="value == null">Wybierz zawód</option>
+                <option value="Trener personalny">Trener personalny</option>
+                <option value="Dietetyk">Dietetyk</option>
+              </select>
+            </div>
+            <div class="form-group col-12" hintLabel="">
+                <textarea rows="2" class="form-control" placeholder="Specjalizacja" formControlName="specialization" required>
+                </textarea>
+                <!-- <mat-error *ngIf="form.controls['specialization'].errors?.required">Pole jest wymagane!</mat-error> -->
+              </div>
+              <div class="col-12">
+                  <button class="btn przycisk po-prawej" type="button" color="primary" type="submit">Wyślij</button>
+                </div>
+          </div>
+
+
+        </div>
+      </form>
+      <!-- </div> -->
+    </div>
+
+</div>

@@ -1,0 +1,663 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>keep-it-foody documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">keep-it-foody documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StatisticComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/statistic/statistic.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-statistic</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./statistic.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./statistic.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#statystyki">statystyki</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#pobierzStatystyki">pobierzStatystyki</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiService: <a href="../injectables/BackendClientService.html">BackendClientService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/statistic/statistic.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackendClientService.html" target="_self" >BackendClientService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/statistic/statistic.component.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pobierzStatystyki"></a>
+                    <span class="name">
+                        <b>
+                            pobierzStatystyki
+                        </b>
+                        <a href="#pobierzStatystyki"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pobierzStatystyki()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/statistic/statistic.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statystyki"></a>
+                        <span class="name">
+                            <b>
+                            statystyki</b>
+                            <a href="#statystyki"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    { 
+      key: &#x27;diets&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;recipes&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;ingredients&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;users&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;active_users&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;unactive_users&#x27;,
+      value: 0,
+    },
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/statistic/statistic.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Pobranie ilości rekordów z bazy</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { BackendClientService } from &#x27;../_shared/backend-client.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-statistic&#x27;,
+  templateUrl: &#x27;./statistic.component.html&#x27;,
+  styleUrls: [&#x27;./statistic.component.css&#x27;]
+})
+export class StatisticComponent implements OnInit {
+/**
+   * Pobranie ilości rekordów z bazy
+   */
+  statystyki &#x3D; [
+    { 
+      key: &#x27;diets&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;recipes&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;ingredients&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;users&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;active_users&#x27;,
+      value: 0,
+    },
+    { 
+      key: &#x27;unactive_users&#x27;,
+      value: 0,
+    },
+  ]
+
+  constructor(private apiService: BackendClientService) { }
+
+  ngOnInit() {
+    this.pobierzStatystyki();
+  }
+
+  pobierzStatystyki() {
+    this.statystyki.forEach(statystyka &#x3D;&gt; {
+      this.apiService.pobierzStatystyke(statystyka.key).subscribe(res &#x3D;&gt; {
+        if (res[&#x27;Message&#x27;].includes(&#x27;Liczba&#x27;)) {
+          statystyka.value &#x3D; res[&#x27;Message&#x27;].split(&#x27;: &#x27;)[1];
+        }
+      },
+      err &#x3D;&gt; {
+      });
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">﻿&lt;!-- &lt;app-admin-navbar&gt;&lt;/app-admin-navbar&gt; --&gt;
+
+&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;!-- &lt;h1&gt;Statystyki&lt;/h1&gt;
+  &lt;h3&gt;Składniki&lt;/h3&gt; --&gt;
+  &lt;!-- &lt;table class&#x3D;&quot;table&quot;&gt; --&gt;
+    &lt;table class&#x3D;&quot;table table-striped table-bordered&quot; id&#x3D;&quot;bor&quot;&gt;
+      &lt;!-- table-sm --&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Składniki&lt;/th&gt;
+          &lt;th&gt;Przepisy&lt;/th&gt;
+          &lt;th&gt;Specjaliści&lt;/th&gt;
+          &lt;th&gt;Użytkownicy&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Aktualnie w bazie&lt;/td&gt;
+          &lt;td&gt;{{statystyki[2].value}}&lt;/td&gt;
+          &lt;td&gt;{{statystyki[1].value}}&lt;/td&gt;
+          &lt;td&gt;{{statystyki[0].value}}&lt;/td&gt;
+          &lt;td&gt;{{statystyki[3].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Aktywni&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;{{statystyki[4].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Dezaktywowanych&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;{{statystyki[5].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;!-- &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;row&quot;&gt;Aktualnie w bazie&lt;/th&gt;
+          &lt;td&gt;{{statystyki[2].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;h3&gt;Przepisy&lt;/h3&gt;
+        &lt;table class&#x3D;&quot;table&quot;&gt;
+
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;th scope&#x3D;&quot;row&quot;&gt;Aktualnie w bazie&lt;/th&gt;
+                &lt;td&gt;{{statystyki[1].value}}&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+          &lt;h3&gt;Diety&lt;/h3&gt;
+    &lt;table class&#x3D;&quot;table&quot;&gt;
+
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt;Aktualnie w bazie&lt;/th&gt;
+            &lt;td&gt;{{statystyki[0].value}}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;h3&gt;Specjaliści&lt;/h3&gt;
+      &lt;table class&#x3D;&quot;table&quot;&gt;
+
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;th scope&#x3D;&quot;row&quot;&gt;Aktualnie w bazie&lt;/th&gt;
+              &lt;td&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;th scope&#x3D;&quot;row&quot;&gt;Aktywni&lt;/th&gt;
+              &lt;td&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;h3&gt;Użytkownicy&lt;/h3&gt;
+    &lt;table class&#x3D;&quot;table&quot;&gt;
+
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;row&quot;&gt;Aktualnie w bazie&lt;/th&gt;
+          &lt;td&gt;{{statystyki[3].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;row&quot;&gt;Aktywni&lt;/th&gt;
+          &lt;td&gt;{{statystyki[4].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;row&quot;&gt;Dezaktywowanych&lt;/th&gt;
+          &lt;td&gt;{{statystyki[5].value}}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt; --&gt;
+    &lt;/table&gt;
+    &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;pobierzStatystyki()&quot;&gt; Odśwież&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./statistic.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.btn {
+    float: right;
+    background-color: rgb(226, 226, 226);
+    border: #f4511e;
+    color: #f4511e;
+}
+
+.btn:hover {
+    background-color: #f4511e;
+    border: #f4511e;
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    color: #f4511e;
+    border: 0;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>﻿<!-- <app-admin-navbar></app-admin-navbar> --><div class="container">  <!-- <h1>Statystyki</h1>  <h3>Składniki</h3> -->  <!-- <table class="table"> -->    <table class="table table-striped table-bordered" id="bor">      <!-- table-sm -->      <thead>        <tr>          <th></th>          <th>Składniki</th>          <th>Przepisy</th>          <th>Specjaliści</th>          <th>Użytkownicy</th>        </tr>      </thead>      <tbody>        <tr>          <td>Aktualnie w bazie</td>          <td>{{statystyki[2].value}}</td>          <td>{{statystyki[1].value}}</td>          <td>{{statystyki[0].value}}</td>          <td>{{statystyki[3].value}}</td>        </tr>        <tr>          <td>Aktywni</td>          <td></td>          <td></td>          <td></td>          <td>{{statystyki[4].value}}</td>        </tr>        <tr>          <td>Dezaktywowanych</td>          <td></td>          <td></td>          <td></td>          <td>{{statystyki[5].value}}</td>        </tr>      </tbody>      <!-- <tbody>        <tr>          <th scope="row">Aktualnie w bazie</th>          <td>{{statystyki[2].value}}</td>        </tr>      </tbody>    </table>    <h3>Przepisy</h3>        <table class="table">            <tbody>              <tr>                <th scope="row">Aktualnie w bazie</th>                <td>{{statystyki[1].value}}</td>              </tr>            </tbody>          </table>          <h3>Diety</h3>    <table class="table">        <tbody>          <tr>            <th scope="row">Aktualnie w bazie</th>            <td>{{statystyki[0].value}}</td>          </tr>        </tbody>      </table>      <h3>Specjaliści</h3>      <table class="table">          <tbody>            <tr>              <th scope="row">Aktualnie w bazie</th>              <td></td>            </tr>            <tr>              <th scope="row">Aktywni</th>              <td></td>            </tr>          </tbody>        </table>        <h3>Użytkownicy</h3>    <table class="table">      <tbody>        <tr>          <th scope="row">Aktualnie w bazie</th>          <td>{{statystyki[3].value}}</td>        </tr>        <tr>          <th scope="row">Aktywni</th>          <td>{{statystyki[4].value}}</td>        </tr>        <tr>          <th scope="row">Dezaktywowanych</th>          <td>{{statystyki[5].value}}</td>        </tr>      </tbody> -->    </table>    <button class="btn btn-primary" (click)="pobierzStatystyki()"> Odśwież</button></div></div>'
+    var COMPONENTS = [{'name': 'ActionUserComponent', 'selector': 'app-action-user'},{'name': 'AdminMainComponent', 'selector': 'app-admin-main'},{'name': 'AdminNavbarComponent', 'selector': 'app-admin-navbar'},{'name': 'AdminSpecialistComponent', 'selector': 'app-admin-specialist'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DietaDodajComponent', 'selector': 'app-dieta-dodaj'},{'name': 'DietaPremiumComponent', 'selector': 'app-dieta-premium'},{'name': 'DietaWyswietlanieComponent', 'selector': 'app-dieta-wyswietlanie'},{'name': 'DietyComponent', 'selector': 'app-diety'},{'name': 'DodajPosilekComponent', 'selector': 'app-dodaj-posilek'},{'name': 'DodajPrzepisComponent', 'selector': 'app-dodaj-przepis'},{'name': 'DodajSkladnikComponent', 'selector': 'app-dodaj-skladnik'},{'name': 'DziennikComponent', 'selector': 'app-dziennik'},{'name': 'DziennikDzienComponent', 'selector': 'app-dziennik-dzien'},{'name': 'DziennikMiesiacComponent', 'selector': 'app-dziennik-miesiac'},{'name': 'DziennikTydzienComponent', 'selector': 'app-dziennik-tydzien'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IngredientsComponent', 'selector': 'app-ingredients'},{'name': 'KalendarzComponent', 'selector': 'app-kalendarz'},{'name': 'LogowanieComponent', 'selector': 'app-logowanie'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfilComponent', 'selector': 'app-profil'},{'name': 'ProfilDanePodstawoweComponent', 'selector': 'app-profil-dane-podstawowe'},{'name': 'ProfilDaneSzczegoloweComponent', 'selector': 'app-profil-dane-szczegolowe'},{'name': 'ProfilPlatnosciComponent', 'selector': 'app-profil-platnosci'},{'name': 'PrzepisyComponent', 'selector': 'app-przepisy'},{'name': 'PrzepisyWyswietlanieComponent', 'selector': 'app-przepisy-wyswietlanie'},{'name': 'PrzypomnijHasloComponent', 'selector': 'app-przypomnij-haslo'},{'name': 'Pusta1Component', 'selector': 'app-pusta1'},{'name': 'Pusta2Component', 'selector': 'app-pusta2'},{'name': 'RejestracjaComponent', 'selector': 'app-rejestracja'},{'name': 'ShowIngredientsComponent', 'selector': 'app-show-ingredients'},{'name': 'ShowUsersComponent', 'selector': 'app-show-users'},{'name': 'SkladnikiComponent', 'selector': 'app-skladniki'},{'name': 'SkladnikiWyswietlanieComponent', 'selector': 'app-skladniki-wyswietlanie'},{'name': 'SliderComponent', 'selector': 'app-slider'},{'name': 'SpecjalisciComponent', 'selector': 'app-specjalisci'},{'name': 'StatisticComponent', 'selector': 'app-statistic'},{'name': 'StickyfooterComponent', 'selector': 'app-stickyfooter'},{'name': 'ToastMessagesComponent', 'selector': 'app-toast-messages'},{'name': 'WiadomosciComponent', 'selector': 'app-wiadomosci'},{'name': 'WspolpracaComponent', 'selector': 'app-wspolpraca'},{'name': 'ZalogowanyComponent', 'selector': 'app-zalogowany'},{'name': 'ZalogowanyNavbarComponent', 'selector': 'app-zalogowany-navbar'},{'name': 'ZmianaHaslaComponent', 'selector': 'app-zmiana-hasla'}];
+    var DIRECTIVES = [{'name': 'NgbdSortableHeader', 'selector': 'th[sortable]'}];
+    var ACTUAL_COMPONENT = {'name': 'StatisticComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatisticComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

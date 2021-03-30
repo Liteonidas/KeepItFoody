@@ -1,0 +1,181 @@
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/*#przepis{
+
+    margin: 10px;
+}*/
+
+.card {
+    /*padding: 20px;*/
+    margin: 5px;
+
+}
+.img-fluid{
+    width: 100%;
+}
+
+.btn-primary{
+
+    margin-bottom: 10px;
+
+}
+
+.card-img-top{
+
+    margin-top: 10px;
+
+}
+#przycisk-dodaj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+  }
+
+#category {
+  text-align: left;
+
+}
+#szukaj{
+  background-color: #f79862;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+#kategorie{
+  border-radius: 5px;
+}
+/* #kat-css{
+  padding-left: 2%;
+} */
+
+#styl-szukaj{
+  font-style: normal;
+}
+
+/* #tlo{
+  background-image: url('../../assets/burger-logowanie.jpg');
+  width:cover 100%;
+  height: 100%;
+  padding-top: 5%;
+  background-size:cover;
+} */
+.my-margin{
+  padding-top: 6%;
+}
+
+.przezroczystosc{
+  background: transparent;
+}
+.tlo{
+  /* background-color: brown; */
+  width:cover 100%;
+  height: auto;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background:url('../../assets/amozezielony.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 100px;
+
+}
+
+#przypiety{
+  position: fixed;
+  z-index: 1;
+}
+#szukaj-radius{
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+
+}
+ .wys{
+   height: 60vh;
+   border-radius: 1em;
+ }
+
+ .container-fluid{
+   padding-top: 5px;
+   border-radius: 10px;
+ }
+
+ /* #bor{
+   border-radius: 10px;
+ } */
+ table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+/* #but{
+  height: 100%;
+  width: 100%;
+} */
+#do-prawej{
+  float: right;
+  white-space: pre;
+  /* position: absolute; right: 2px; */
+}
+ul {
+
+  list-style-type: none;
+  position: left!important;
+  padding: 0px;
+
+  }
+
+li {
+  /* border-bottom: solid black 0.5px; */
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #ffa200;
+  border-color: #ff8600;
+}
+/* .custom-select select:hover {
+  background-color:#ff8600!important;
+} */
+/* table-dark */
+.custom-select{
+  margin-top: 10px;
+}
+.fa-check-circle{
+  color: green;
+  text-align: center
+}
+.fa-times-circle{
+  color: red;
+  text-align: center
+}
+.kolor{
+  /* background-color: rgb(75, 75, 75); */
+  background-color: #F8F8FF;
+}
+
+.bialy-znak{
+  white-space: pre;
+}

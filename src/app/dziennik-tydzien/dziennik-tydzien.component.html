@@ -1,0 +1,18 @@
+<div class="row text-center mt-4">
+  <div class="col"></div>
+  <div class="col border pointer-div" *ngFor="let dzien of dniTygodnia" (click)="PokazDzien(dzien.DzienMiesiaca, dzien.Miesiac)" [class.border-current]="dzien.DzienMiesiaca == currentDay && dzien.Miesiac == currentMonth">
+    {{dzien.DzienTygodnia}} <br> {{dzien.DzienMiesiaca}}.{{dzien.Miesiac}}
+  </div>
+  <div class="col"></div>
+</div>
+<div class="row text-center " *ngFor="let numerPosilku of [0,1,2,3,4]">
+    <div class="col">
+        <i *ngIf="numerPosilku == 2" class="fas fa-chevron-left fa-3x" (click)="PoprzedniTydzien()"></i>
+    </div>
+    <div class="col border pointer-div" *ngFor="let dzien of dniTygodnia"  [class.border-current]="dzien.DzienMiesiaca == currentDay && dzien.Miesiac == currentMonth">
+      Posiłek
+    </div>
+    <div class="col">
+      <i *ngIf="numerPosilku == 2" class="fas fa-chevron-right fa-3x" (click)="NastepnyTydzien()"></i>
+    </div>
+</div>

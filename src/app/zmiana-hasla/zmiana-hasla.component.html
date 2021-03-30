@@ -1,0 +1,27 @@
+<form class="form-signin" [formGroup]="form" (ngSubmit)="ZmienHaslo()">
+  <div class="alert alert-warning" *ngIf="message.content != null">{{message.content}}</div>
+
+  <div class="input-group">
+    <input type="password" class="form-control mb-2" placeholder="Stare Hasło" formControlName="old_pass" id="pass">
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fa fa-eye" (mouseover)="show('pass')" (mouseleave)="hide('pass')"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <input type="password" class="form-control mb-2" placeholder="Nowe Hasło" formControlName="pass" id="pass2">
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fa fa-eye" (mouseover)="show('pass2')" (mouseleave)="hide('pass2')"></i>
+      </span>
+    </div>
+  </div>
+
+  <input type="password" class="form-control mb-2" placeholder="Powtórz Nowe Hasło" formControlName="pass2">
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-success" type="submit" [disabled]="!form.valid"> Zapisz
+    </button>
+  </div>
+</form>
