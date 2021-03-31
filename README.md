@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+####################
+
+Front-end aplikacji KeepItFoody
+
+Połączenie z api:
+src/app/_shared/backend-client.service.ts
+
+Domyślny adres(niedostępny):
+https://192.168.134.62/ 
+
+####################
